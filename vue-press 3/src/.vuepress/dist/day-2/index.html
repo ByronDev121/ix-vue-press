@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Javascript Deep Dive | iXperience - Software Engineering 2024</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="iX day 1 resource">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.d920a842.css" as="style"><link rel="preload" href="/assets/js/app.55507470.js" as="script"><link rel="preload" href="/assets/js/2.640495aa.js" as="script"><link rel="preload" href="/assets/js/1.416e4fa3.js" as="script"><link rel="preload" href="/assets/js/31.4fdb2dd1.js" as="script"><link rel="prefetch" href="/assets/js/10.b008c32b.js"><link rel="prefetch" href="/assets/js/11.6a71a21e.js"><link rel="prefetch" href="/assets/js/12.7381853d.js"><link rel="prefetch" href="/assets/js/13.9cbf7086.js"><link rel="prefetch" href="/assets/js/14.0437fd45.js"><link rel="prefetch" href="/assets/js/15.bf3f0711.js"><link rel="prefetch" href="/assets/js/16.4444bedb.js"><link rel="prefetch" href="/assets/js/17.2e85910b.js"><link rel="prefetch" href="/assets/js/18.78f87d15.js"><link rel="prefetch" href="/assets/js/19.9f389a20.js"><link rel="prefetch" href="/assets/js/20.c55ac021.js"><link rel="prefetch" href="/assets/js/21.21961b53.js"><link rel="prefetch" href="/assets/js/22.907dbbe8.js"><link rel="prefetch" href="/assets/js/23.252f9d42.js"><link rel="prefetch" href="/assets/js/24.5a777f85.js"><link rel="prefetch" href="/assets/js/25.00a71687.js"><link rel="prefetch" href="/assets/js/26.06391984.js"><link rel="prefetch" href="/assets/js/27.651d3d7e.js"><link rel="prefetch" href="/assets/js/28.7d7972c5.js"><link rel="prefetch" href="/assets/js/29.6b1ba1d9.js"><link rel="prefetch" href="/assets/js/3.abd8da3d.js"><link rel="prefetch" href="/assets/js/30.095dc356.js"><link rel="prefetch" href="/assets/js/32.4547a0b9.js"><link rel="prefetch" href="/assets/js/33.4a1937da.js"><link rel="prefetch" href="/assets/js/34.acda8834.js"><link rel="prefetch" href="/assets/js/35.3a3a4d81.js"><link rel="prefetch" href="/assets/js/36.ee6565f2.js"><link rel="prefetch" href="/assets/js/37.485250a4.js"><link rel="prefetch" href="/assets/js/38.2477777e.js"><link rel="prefetch" href="/assets/js/39.888a02db.js"><link rel="prefetch" href="/assets/js/4.80f546ca.js"><link rel="prefetch" href="/assets/js/40.78811feb.js"><link rel="prefetch" href="/assets/js/41.28c2273c.js"><link rel="prefetch" href="/assets/js/42.72c1395f.js"><link rel="prefetch" href="/assets/js/43.9c69e2be.js"><link rel="prefetch" href="/assets/js/44.481c5f0d.js"><link rel="prefetch" href="/assets/js/45.2ee88eba.js"><link rel="prefetch" href="/assets/js/46.828f0d3a.js"><link rel="prefetch" href="/assets/js/47.60f23e1b.js"><link rel="prefetch" href="/assets/js/5.edbb760b.js"><link rel="prefetch" href="/assets/js/6.7a8bd171.js"><link rel="prefetch" href="/assets/js/7.93fcf6e6.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.5a4296f1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d920a842.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">iXperience - Software Engineering 2024</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/capstone-project/" class="nav-link">
+  Capstone Project
+</a></div><div class="nav-item"><a href="/day-1/" class="nav-link">
+  Day 1
+</a></div><div class="nav-item"><a href="/day-2/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Day 2
+</a></div><div class="nav-item"><a href="/day-3/" class="nav-link">
+  Day 3
+</a></div><div class="nav-item"><a href="/day-4/" class="nav-link">
+  Day 4
+</a></div><div class="nav-item"><a href="/day-5/" class="nav-link">
+  Day 5
+</a></div><div class="nav-item"><a href="/day-6/" class="nav-link">
+  Day 6
+</a></div><div class="nav-item"><a href="/day-7/" class="nav-link">
+  Day 7
+</a></div><div class="nav-item"><a href="/day-8/" class="nav-link">
+  Day 8
+</a></div><div class="nav-item"><a href="/day-12/" class="nav-link">
+  Day 12
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/capstone-project/" class="nav-link">
+  Capstone Project
+</a></div><div class="nav-item"><a href="/day-1/" class="nav-link">
+  Day 1
+</a></div><div class="nav-item"><a href="/day-2/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Day 2
+</a></div><div class="nav-item"><a href="/day-3/" class="nav-link">
+  Day 3
+</a></div><div class="nav-item"><a href="/day-4/" class="nav-link">
+  Day 4
+</a></div><div class="nav-item"><a href="/day-5/" class="nav-link">
+  Day 5
+</a></div><div class="nav-item"><a href="/day-6/" class="nav-link">
+  Day 6
+</a></div><div class="nav-item"><a href="/day-7/" class="nav-link">
+  Day 7
+</a></div><div class="nav-item"><a href="/day-8/" class="nav-link">
+  Day 8
+</a></div><div class="nav-item"><a href="/day-12/" class="nav-link">
+  Day 12
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Day 2</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/day-2/" aria-current="page" class="active sidebar-link">Javascript Deep Dive</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/day-2/#variables" class="sidebar-link">Variables</a></li><li class="sidebar-sub-header"><a href="/day-2/#data-types" class="sidebar-link">Data Types</a></li><li class="sidebar-sub-header"><a href="/day-2/#loops" class="sidebar-link">Loops</a></li><li class="sidebar-sub-header"><a href="/day-2/#conditional-statements" class="sidebar-link">Conditional Statements</a></li><li class="sidebar-sub-header"><a href="/day-2/#functions" class="sidebar-link">Functions</a></li></ul></li><li><a href="/day-2/git.html" class="sidebar-link">Git &amp; Github</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="javascript-deep-dive"><a href="#javascript-deep-dive" class="header-anchor">#</a> Javascript Deep Dive</h1> <p></p><div class="table-of-contents"><ul><li><a href="#variables">Variables</a></li><li><a href="#data-types">Data Types</a><ul><li><a href="#working-with-strings">Working with strings</a></li><li><a href="#working-with-arrays">Working with arrays</a></li><li><a href="#working-with-objects">Working with objects</a></li></ul></li><li><a href="#loops">Loops</a></li><li><a href="#conditional-statements">Conditional Statements</a></li><li><a href="#functions">Functions</a><ul><li><a href="#functions">Functions</a></li><li><a href="#higher-order-array-functions">Higher order array functions</a></li><li><a href="#function-example">Function Example</a></li><li><a href="#function-example">Function Example</a></li><li><a href="#function-example">Function Example</a></li></ul></li></ul></div><p></p> <h2 id="variables"><a href="#variables" class="header-anchor">#</a> Variables</h2> <p>Create/Initialize variables in JavaScript</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// VAR - old</span>
+<span class="token keyword">var</span> firstName1 <span class="token operator">=</span> <span class="token string">&quot;Byron&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// CONST - new - Immutable</span>
+<span class="token keyword">const</span> lastName1 <span class="token operator">=</span> <span class="token string">&quot;de Villiers&quot;</span><span class="token punctuation">;</span>
+lastName <span class="token operator">=</span> <span class="token string">&quot;Smith&quot;</span><span class="token punctuation">;</span>
+<span class="token comment">// const lastName; // This will result in an error</span>
+
+<span class="token comment">// LET - new - Mutable</span>
+<span class="token keyword">let</span> age1<span class="token punctuation">;</span>
+age1 <span class="token operator">=</span> <span class="token number">42</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>firstName1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lastName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="data-types"><a href="#data-types" class="header-anchor">#</a> Data Types</h2> <p>Different data types in JS</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Data types:</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;\n \n \n  Data types  \n \n \n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Primitives</span>
+
+<span class="token comment">// String</span>
+<span class="token keyword">let</span> firstName <span class="token operator">=</span> <span class="token string">&quot;Byron&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> lastName <span class="token operator">=</span> <span class="token string">&quot;de Villiers&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> address <span class="token operator">=</span> <span class="token string">&quot;11 Zinnia&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Numbers</span>
+<span class="token keyword">let</span> age <span class="token operator">=</span> <span class="token number">29</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> rating <span class="token operator">=</span> <span class="token number">4.5</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Boolean</span>
+<span class="token keyword">let</span> isCool <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> isVeryCool <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token comment">// null</span>
+address <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token comment">// undefined</span>
+<span class="token keyword">let</span> hairColor<span class="token punctuation">;</span>
+
+<span class="token comment">// Not a primitive:</span>
+
+<span class="token comment">// Object</span>
+<span class="token keyword">let</span> person1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">firstNameKey</span><span class="token operator">:</span> <span class="token string">&quot;firstNameValue&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">lastNameKey</span><span class="token operator">:</span> <span class="token string">&quot;lastNameValue&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">ageKey</span><span class="token operator">:</span> <span class="token string">&quot;ageValue&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Array</span>
+<span class="token keyword">let</span> arrayNumber1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;b&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;c&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre></div><p>Concatenating Strings:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// String concatenation</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;My name is &quot;</span> <span class="token operator">+</span> firstName <span class="token operator">+</span> <span class="token string">&quot; and I am &quot;</span> <span class="token operator">+</span> age <span class="token operator">+</span> <span class="token string">&quot; years old&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// String interpolation</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>firstName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> and I am </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>age<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> years old</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="working-with-strings"><a href="#working-with-strings" class="header-anchor">#</a> Working with strings</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> s <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>firstName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">// string properties</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// string methods</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">toLocaleUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">toLocaleUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+s<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;Y&quot;</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+s1 <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+s2 <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="working-with-arrays"><a href="#working-with-arrays" class="header-anchor">#</a> Working with arrays</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Initializing an array - old</span>
+<span class="token keyword">let</span> nums1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>nums1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Initializing an array - new</span>
+<span class="token keyword">let</span> alphaNumeric <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;b&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>alphaNumeric<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;orange&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;pear&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;apple&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// get element in array (remember it's zero indexed):</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fruits<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// array properties</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fruits<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// array methods</span>
+fruits<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&quot;strawberries&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">;</span>
+fruits<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span><span class="token string">&quot;grape&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> lastFruit <span class="token operator">=</span> fruits<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lastFruit<span class="token punctuation">,</span> fruits<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> index <span class="token operator">=</span> fruits<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&quot;orange&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> fruits<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="working-with-objects"><a href="#working-with-objects" class="header-anchor">#</a> Working with objects</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Object properties:</span>
+  <span class="token literal-property property">firstName</span><span class="token operator">:</span> <span class="token string">&quot;John&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">lastName</span><span class="token operator">:</span> <span class="token string">&quot;Doe&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">29</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">hobbies</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;golf&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;surfing&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;sport&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;music&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">address</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">street</span><span class="token operator">:</span> <span class="token string">&quot;Zinnia&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">city</span><span class="token operator">:</span> <span class="token string">&quot;Potchefstroom&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">province</span><span class="token operator">:</span> <span class="token string">&quot;North West&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// Object methods:</span>
+  <span class="token function-variable function">getFullName</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">&quot; &quot;</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lastName<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">getAddress</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>address<span class="token punctuation">.</span>street <span class="token operator">+</span>
+      <span class="token string">&quot; &quot;</span> <span class="token operator">+</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>address<span class="token punctuation">.</span>city <span class="token operator">+</span>
+      <span class="token string">&quot; &quot;</span> <span class="token operator">+</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>address<span class="token punctuation">.</span>province
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Calling object methods</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getFullName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Adding properties:</span>
+person<span class="token punctuation">.</span>email <span class="token operator">=</span> <span class="token string">&quot;byron@mail.com&quot;</span><span class="token punctuation">;</span>
+person<span class="token punctuation">[</span><span class="token string">&quot;email&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;byron@mail.com&quot;</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="loops"><a href="#loops" class="header-anchor">#</a> Loops</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// For loop example</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;starting for loop&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;execute this line if code in the for loop&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// i = i + 1</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;for loop finished&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// While loop example</span>
+<span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;execute this line if code in the while loop&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Extra Example</span>
+<span class="token keyword">const</span> todos <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">&quot;take out the trash&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">completed</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">&quot;feed the dogs&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">completed</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">&quot;go to the bank&quot;</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">completed</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> todos<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> todo <span class="token operator">=</span> todos<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> doneText <span class="token operator">=</span> todo<span class="token punctuation">.</span>completed <span class="token operator">?</span> <span class="token string">&quot;&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;not&quot;</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>todo<span class="token punctuation">.</span>title<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> task is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>doneText<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> completed</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;\n \n \n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> todo <span class="token keyword">of</span> todos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> doneText <span class="token operator">=</span> todo<span class="token punctuation">.</span>completed <span class="token operator">?</span> <span class="token string">&quot;&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;not&quot;</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>todo<span class="token punctuation">.</span>title<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> task is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>doneText<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> completed</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;\n \n \n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+todos<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">todo</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> doneText <span class="token operator">=</span> todo<span class="token punctuation">.</span>completed <span class="token operator">?</span> <span class="token string">&quot;&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;not&quot;</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>todo<span class="token punctuation">.</span>title<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> task is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>doneText<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> completed</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="conditional-statements"><a href="#conditional-statements" class="header-anchor">#</a> Conditional Statements</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+
+<span class="token comment">// If statement:</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;num = 10&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;num &gt; 5&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;num &lt; 5&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Switch statement:</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">10</span><span class="token operator">:</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;num = 10&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token number">5</span><span class="token operator">:</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;num = 5&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token operator">:</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;num not 5 or 10&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// ternary operator:</span>
+<span class="token keyword">const</span> lessThanFive <span class="token operator">=</span> num <span class="token operator">&lt;</span> <span class="token number">5</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>lessThanFive<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="functions"><a href="#functions" class="header-anchor">#</a> Functions</h2> <h3 id="functions-2"><a href="#functions-2" class="header-anchor">#</a> Functions</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// function definition:</span>
+<span class="token keyword">function</span> <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span> num2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// calling/executing the function</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">addTwoNumbers</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//logging result:</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="higher-order-array-functions"><a href="#higher-order-array-functions" class="header-anchor">#</a> Higher order array functions</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> array1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// filter by even values:</span>
+<span class="token keyword">const</span> filteredArray <span class="token operator">=</span> array1<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>array1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>filteredArray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> array2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// sort smallest to largest</span>
+<span class="token keyword">const</span> sortedArray <span class="token operator">=</span> array2<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>array2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sortedArray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="function-example"><a href="#function-example" class="header-anchor">#</a> Function Example</h3> <p>Wite a function which logs today's Date with the console</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// function definition:</span>
+<span class="token keyword">function</span> <span class="token function">logDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// call/executing the function:</span>
+<span class="token function">logDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="function-example-2"><a href="#function-example-2" class="header-anchor">#</a> Function Example</h3> <p>Wite a function which takes in a number as it's only parameter and returns whether or not the number is a perfect square</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Function definition</span>
+<span class="token keyword">function</span> <span class="token function">isPerfectSquare</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> sqrRoot <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> sqrRoot <span class="token operator">*</span> sqrRoot <span class="token operator">==</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Calling/executing the function:</span>
+<span class="token keyword">const</span> resPrfSqr <span class="token operator">=</span> <span class="token function">isPerfectSquare</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Logging result:</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>resPrfSqr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="function-example-3"><a href="#function-example-3" class="header-anchor">#</a> Function Example</h3> <p>Wite a function which takes in an array of todo tasks as it's only parameter and returns whether or not all tasks are completed</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">areTasksDone</span><span class="token punctuation">(</span><span class="token parameter">todos</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> todo <span class="token keyword">of</span> todos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>todo<span class="token punctuation">.</span>completed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> todos <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">&quot;Learn HTML, CSS and JS&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">completed</span><span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">&quot;Write code&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">completed</span><span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">&quot;Get a SDE job&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">completed</span><span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">areTasksDone</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+todos<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>completed <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">areTasksDone</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/day-2/git.html">
+        Git &amp; Github
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.55507470.js" defer></script><script src="/assets/js/2.640495aa.js" defer></script><script src="/assets/js/1.416e4fa3.js" defer></script><script src="/assets/js/31.4fdb2dd1.js" defer></script>
+  </body>
+</html>
