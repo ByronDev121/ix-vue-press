@@ -1,0 +1,23 @@
+{
+  "name": "day-1",
+  "version": "0.0.1",
+  "description": "iX day 1 resource",
+  "main": "index.js",
+  "authors": {
+    "name": "Byron de Villiers",
+    "email": "byron@devit.technology"
+  },
+  "repository": "/day-1",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "vue": "^2.7.16",
+    "vue-server-renderer": "^2.7.16"
+  }
+}
