@@ -5,6 +5,8 @@ set -e
 
 npm install
 
+git config --global --add safe.directory '*'
+
 # build
 npm run build
 
