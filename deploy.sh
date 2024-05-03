@@ -1,3 +1,5 @@
+!/usr/bin/env sh
+
 set -e
 
 if [ -z "$ACCESS_TOKEN" ] && [ -z "$GITHUB_TOKEN" ]
