@@ -6,19 +6,19 @@ then
   exit 1
 fi
 
-if [ -z "$BRANCH" ]
+if [ -z "$TARGET_BRANCH" ]
 then
   echo "You must provide the action with a branch name it should deploy to, for example gh-pages or docs."
   exit 1
 fi
 
-if [ -z "$FOLDER" ]
+if [ -z "$BUILD_DIR" ]
 then
   echo "You must provide the action with the folder name in the repository where your compiled page lives."
   exit 1
 fi
 
-case "$FOLDER" in /*|./*)
+case "$BUILD_DIR" in /*|./*)
   echo "The deployment folder cannot be prefixed with '/' or './'. Instead reference the folder name directly."
   exit 1
 esac
@@ -56,16 +56,16 @@ REPOSITORY_PATH="https://${ACCESS_TOKEN:-"x-access-token:$GITHUB_TOKEN"}@github.
 
 # Checks to see if the remote exists prior to deploying.
 # If the branch doesn't exist it gets created here as an orphan.
-if [ "$(git ls-remote --heads "$REPOSITORY_PATH" "$BRANCH" | wc -l)" -eq 0 ];
+if [ "$(git ls-remote --heads "$REPOSITORY_PATH" "$TARGET_BRANCH" | wc -l)" -eq 0 ];
 then
-  echo "Creating remote branch ${BRANCH} as it doesn't exist..."
+  echo "Creating remote branch ${TARGET_BRANCH} as it doesn't exist..."
   git checkout "${BASE_BRANCH:-main}" && \
-  git checkout --orphan $BRANCH && \
+  git checkout --orphan $TARGET_BRANCH && \
   git rm -rf . && \
   touch README.md && \
   git add README.md && \
-  git commit -m "Initial ${BRANCH} commit" && \
-  git push $REPOSITORY_PATH $BRANCH
+  git commit -m "Initial ${TARGET_BRANCH} commit" && \
+  git push $REPOSITORY_PATH $TARGET_BRANCH
 fi
 
 # Checks out the base branch to begin the deploy process.
@@ -75,17 +75,12 @@ git checkout "${BASE_BRANCH:-main}" && \
 echo "Running build scripts... $BUILD_SCRIPT" && \
 eval "$BUILD_SCRIPT" && \
 
-if [ "$CNAME" ]; then
-  echo "Generating a CNAME file in in the $FOLDER directory..."
-  echo $CNAME > $FOLDER/CNAME
-fi
-
 # Commits the data to Github.
 echo "Deploying to GitHub..." && \
-cd "./${FOLDER}"
+cd "./${BUILD_DIR}"
 git add -A . && \
 
-git commit -m "Deploying to ${BRANCH} from ${BASE_BRANCH:-main} ${GITHUB_SHA}" --quiet && \
-git push $REPOSITORY_PATH `git subtree split --prefix $FOLDER ${BASE_BRANCH:-main}`:$BRANCH --force && \
+git commit -m "Deploying to ${TARGET_BRANCH} from ${BASE_BRANCH:-main} ${GITHUB_SHA}" --quiet && \
+git push $REPOSITORY_PATH `git subtree split --prefix $BUILD_DIR ${BASE_BRANCH:-main}`:$TARGET_BRANCH --force && \
 
 echo "Deployment succesful!"
