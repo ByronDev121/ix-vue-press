@@ -11,6 +11,6 @@ LABEL "maintainer"="ByronDev121 <byron.div@gmail.com>"
 
 RUN apt-get update && apt-get install -y git jq
 
-COPY deploy.sh /deploy.sh
+COPY . .
 RUN chmod +x /deploy.sh
 ENTRYPOINT ["/deploy.sh"]
