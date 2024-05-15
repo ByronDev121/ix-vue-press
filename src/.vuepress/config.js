@@ -1,7 +1,7 @@
 const { description } = require("../../package");
 
 module.exports = {
-  base: "/ix-vue-press/",
+  // base: "/ix-vue-press/",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
