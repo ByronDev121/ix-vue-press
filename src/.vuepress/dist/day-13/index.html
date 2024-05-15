@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>State Management Using Redux | iXperience - Software Engineering 2024</title>
+    <title>Multi-Part Upload | iXperience - Software Engineering 2024</title>
     <meta name="generator" content="VuePress 1.9.10">
     
     <meta name="description" content="iX day 1 resource">
@@ -11,302 +11,130 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <link rel="preload" href="/assets/css/0.styles.d920a842.css" as="style"><link rel="preload" href="/assets/js/app.00b8489d.js" as="script"><link rel="preload" href="/assets/js/2.640495aa.js" as="script"><link rel="preload" href="/assets/js/1.416e4fa3.js" as="script"><link rel="preload" href="/assets/js/33.e672efeb.js" as="script"><link rel="prefetch" href="/assets/js/10.b008c32b.js"><link rel="prefetch" href="/assets/js/11.6a71a21e.js"><link rel="prefetch" href="/assets/js/12.7381853d.js"><link rel="prefetch" href="/assets/js/13.9cbf7086.js"><link rel="prefetch" href="/assets/js/14.0437fd45.js"><link rel="prefetch" href="/assets/js/15.bf3f0711.js"><link rel="prefetch" href="/assets/js/16.4444bedb.js"><link rel="prefetch" href="/assets/js/17.2e85910b.js"><link rel="prefetch" href="/assets/js/18.78f87d15.js"><link rel="prefetch" href="/assets/js/19.9f389a20.js"><link rel="prefetch" href="/assets/js/20.c55ac021.js"><link rel="prefetch" href="/assets/js/21.21961b53.js"><link rel="prefetch" href="/assets/js/22.907dbbe8.js"><link rel="prefetch" href="/assets/js/23.9af4806f.js"><link rel="prefetch" href="/assets/js/24.5a777f85.js"><link rel="prefetch" href="/assets/js/25.23812809.js"><link rel="prefetch" href="/assets/js/26.d8b623f9.js"><link rel="prefetch" href="/assets/js/27.07bf9773.js"><link rel="prefetch" href="/assets/js/28.9d47222e.js"><link rel="prefetch" href="/assets/js/29.0c31cc9d.js"><link rel="prefetch" href="/assets/js/3.abd8da3d.js"><link rel="prefetch" href="/assets/js/30.4dc88cf2.js"><link rel="prefetch" href="/assets/js/31.b89c5df7.js"><link rel="prefetch" href="/assets/js/32.507536f3.js"><link rel="prefetch" href="/assets/js/34.0822bd1a.js"><link rel="prefetch" href="/assets/js/35.14ecbb12.js"><link rel="prefetch" href="/assets/js/36.8fb9102d.js"><link rel="prefetch" href="/assets/js/37.a5fd8dd3.js"><link rel="prefetch" href="/assets/js/38.da03d91b.js"><link rel="prefetch" href="/assets/js/39.4c272887.js"><link rel="prefetch" href="/assets/js/4.80f546ca.js"><link rel="prefetch" href="/assets/js/40.256b07ee.js"><link rel="prefetch" href="/assets/js/41.ac0f7d40.js"><link rel="prefetch" href="/assets/js/42.91305ce8.js"><link rel="prefetch" href="/assets/js/43.78af2788.js"><link rel="prefetch" href="/assets/js/44.59eff156.js"><link rel="prefetch" href="/assets/js/45.664b4d47.js"><link rel="prefetch" href="/assets/js/46.fc96e882.js"><link rel="prefetch" href="/assets/js/47.f1ef88ab.js"><link rel="prefetch" href="/assets/js/48.3bfc84e4.js"><link rel="prefetch" href="/assets/js/49.b5def0d5.js"><link rel="prefetch" href="/assets/js/5.edbb760b.js"><link rel="prefetch" href="/assets/js/50.a8965d37.js"><link rel="prefetch" href="/assets/js/51.3ee2fbad.js"><link rel="prefetch" href="/assets/js/52.6d4c21d3.js"><link rel="prefetch" href="/assets/js/53.245c8548.js"><link rel="prefetch" href="/assets/js/54.3d785a3b.js"><link rel="prefetch" href="/assets/js/6.7a8bd171.js"><link rel="prefetch" href="/assets/js/7.93fcf6e6.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.5a4296f1.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.d920a842.css">
+    <link rel="preload" href="/ix-vue-press/assets/css/0.styles.a5a5587f.css" as="style"><link rel="preload" href="/ix-vue-press/assets/js/app.6c541724.js" as="script"><link rel="preload" href="/ix-vue-press/assets/js/2.640495aa.js" as="script"><link rel="preload" href="/ix-vue-press/assets/js/1.416e4fa3.js" as="script"><link rel="preload" href="/ix-vue-press/assets/js/31.7c68f2cc.js" as="script"><link rel="prefetch" href="/ix-vue-press/assets/js/10.b008c32b.js"><link rel="prefetch" href="/ix-vue-press/assets/js/11.6a71a21e.js"><link rel="prefetch" href="/ix-vue-press/assets/js/12.7381853d.js"><link rel="prefetch" href="/ix-vue-press/assets/js/13.9cbf7086.js"><link rel="prefetch" href="/ix-vue-press/assets/js/14.0437fd45.js"><link rel="prefetch" href="/ix-vue-press/assets/js/15.bf3f0711.js"><link rel="prefetch" href="/ix-vue-press/assets/js/16.4444bedb.js"><link rel="prefetch" href="/ix-vue-press/assets/js/17.2e85910b.js"><link rel="prefetch" href="/ix-vue-press/assets/js/18.78f87d15.js"><link rel="prefetch" href="/ix-vue-press/assets/js/19.9f389a20.js"><link rel="prefetch" href="/ix-vue-press/assets/js/20.c55ac021.js"><link rel="prefetch" href="/ix-vue-press/assets/js/21.21961b53.js"><link rel="prefetch" href="/ix-vue-press/assets/js/22.907dbbe8.js"><link rel="prefetch" href="/ix-vue-press/assets/js/23.9af4806f.js"><link rel="prefetch" href="/ix-vue-press/assets/js/24.5a777f85.js"><link rel="prefetch" href="/ix-vue-press/assets/js/25.1937e3c0.js"><link rel="prefetch" href="/ix-vue-press/assets/js/26.06391984.js"><link rel="prefetch" href="/ix-vue-press/assets/js/27.b4eab8f6.js"><link rel="prefetch" href="/ix-vue-press/assets/js/28.20018c6a.js"><link rel="prefetch" href="/ix-vue-press/assets/js/29.3161ed9c.js"><link rel="prefetch" href="/ix-vue-press/assets/js/3.abd8da3d.js"><link rel="prefetch" href="/ix-vue-press/assets/js/30.df3e5279.js"><link rel="prefetch" href="/ix-vue-press/assets/js/32.3e774e94.js"><link rel="prefetch" href="/ix-vue-press/assets/js/33.f4640663.js"><link rel="prefetch" href="/ix-vue-press/assets/js/34.cf23bdb5.js"><link rel="prefetch" href="/ix-vue-press/assets/js/35.df365ce0.js"><link rel="prefetch" href="/ix-vue-press/assets/js/36.a807c265.js"><link rel="prefetch" href="/ix-vue-press/assets/js/37.15462a20.js"><link rel="prefetch" href="/ix-vue-press/assets/js/38.60afa891.js"><link rel="prefetch" href="/ix-vue-press/assets/js/39.4c272887.js"><link rel="prefetch" href="/ix-vue-press/assets/js/4.80f546ca.js"><link rel="prefetch" href="/ix-vue-press/assets/js/40.20367dbc.js"><link rel="prefetch" href="/ix-vue-press/assets/js/41.619e489d.js"><link rel="prefetch" href="/ix-vue-press/assets/js/42.d139abfe.js"><link rel="prefetch" href="/ix-vue-press/assets/js/43.78af2788.js"><link rel="prefetch" href="/ix-vue-press/assets/js/44.8c57b325.js"><link rel="prefetch" href="/ix-vue-press/assets/js/45.84299f05.js"><link rel="prefetch" href="/ix-vue-press/assets/js/46.425256f7.js"><link rel="prefetch" href="/ix-vue-press/assets/js/47.07b9d734.js"><link rel="prefetch" href="/ix-vue-press/assets/js/48.bea5b708.js"><link rel="prefetch" href="/ix-vue-press/assets/js/49.aa0850dd.js"><link rel="prefetch" href="/ix-vue-press/assets/js/5.edbb760b.js"><link rel="prefetch" href="/ix-vue-press/assets/js/50.03f22424.js"><link rel="prefetch" href="/ix-vue-press/assets/js/51.128e5b0a.js"><link rel="prefetch" href="/ix-vue-press/assets/js/52.bdb5fafa.js"><link rel="prefetch" href="/ix-vue-press/assets/js/53.a7da414c.js"><link rel="prefetch" href="/ix-vue-press/assets/js/54.310a62e0.js"><link rel="prefetch" href="/ix-vue-press/assets/js/6.7a8bd171.js"><link rel="prefetch" href="/ix-vue-press/assets/js/7.93fcf6e6.js"><link rel="prefetch" href="/ix-vue-press/assets/js/vendors~docsearch.5a4296f1.js">
+    <link rel="stylesheet" href="/ix-vue-press/assets/css/0.styles.a5a5587f.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">iXperience - Software Engineering 2024</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/capstone-project/" class="nav-link">
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ix-vue-press/" class="home-link router-link-active"><!----> <span class="site-name">iXperience - Software Engineering 2024</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ix-vue-press/capstone-project/" class="nav-link">
   Capstone Project
-</a></div><div class="nav-item"><a href="/day-1/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-1/" class="nav-link">
   Day 1
-</a></div><div class="nav-item"><a href="/day-2/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-2/" class="nav-link">
   Day 2
-</a></div><div class="nav-item"><a href="/day-3/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-3/" class="nav-link">
   Day 3
-</a></div><div class="nav-item"><a href="/day-4/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-4/" class="nav-link">
   Day 4
-</a></div><div class="nav-item"><a href="/day-5/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-5/" class="nav-link">
   Day 5
-</a></div><div class="nav-item"><a href="/day-6/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-6/" class="nav-link">
   Day 6
-</a></div><div class="nav-item"><a href="/day-7/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-7/" class="nav-link">
   Day 7
-</a></div><div class="nav-item"><a href="/day-8/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-8/" class="nav-link">
   Day 8
-</a></div><div class="nav-item"><a href="/day-9/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-9/" class="nav-link">
   Day 9
-</a></div><div class="nav-item"><a href="/day-11/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-11/" class="nav-link">
   Day 11
-</a></div><div class="nav-item"><a href="/day-12/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-12/" class="nav-link">
   Day 12
-</a></div><div class="nav-item"><a href="/day-13/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-13/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
   Day 13
-</a></div><div class="nav-item"><a href="/day-14/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-14/" class="nav-link">
   Day 14
-</a></div><div class="nav-item"><a href="/day-17/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-17/" class="nav-link">
   Day 17
-</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/capstone-project/" class="nav-link">
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ix-vue-press/capstone-project/" class="nav-link">
   Capstone Project
-</a></div><div class="nav-item"><a href="/day-1/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-1/" class="nav-link">
   Day 1
-</a></div><div class="nav-item"><a href="/day-2/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-2/" class="nav-link">
   Day 2
-</a></div><div class="nav-item"><a href="/day-3/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-3/" class="nav-link">
   Day 3
-</a></div><div class="nav-item"><a href="/day-4/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-4/" class="nav-link">
   Day 4
-</a></div><div class="nav-item"><a href="/day-5/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-5/" class="nav-link">
   Day 5
-</a></div><div class="nav-item"><a href="/day-6/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-6/" class="nav-link">
   Day 6
-</a></div><div class="nav-item"><a href="/day-7/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-7/" class="nav-link">
   Day 7
-</a></div><div class="nav-item"><a href="/day-8/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-8/" class="nav-link">
   Day 8
-</a></div><div class="nav-item"><a href="/day-9/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-9/" class="nav-link">
   Day 9
-</a></div><div class="nav-item"><a href="/day-11/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-11/" class="nav-link">
   Day 11
-</a></div><div class="nav-item"><a href="/day-12/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-12/" class="nav-link">
   Day 12
-</a></div><div class="nav-item"><a href="/day-13/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-13/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
   Day 13
-</a></div><div class="nav-item"><a href="/day-14/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-14/" class="nav-link">
   Day 14
-</a></div><div class="nav-item"><a href="/day-17/" class="nav-link">
+</a></div><div class="nav-item"><a href="/ix-vue-press/day-17/" class="nav-link">
   Day 17
-</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Day 13</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/day-13/" aria-current="page" class="active sidebar-link">State Management Using Redux</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/day-13/#getting-started" class="sidebar-link">Getting started</a></li><li class="sidebar-sub-header"><a href="/day-13/#redux-store" class="sidebar-link">Redux Store</a></li><li class="sidebar-sub-header"><a href="/day-13/#redux-state" class="sidebar-link">Redux State</a></li><li class="sidebar-sub-header"><a href="/day-13/#redux-reducers" class="sidebar-link">Redux Reducers</a></li><li class="sidebar-sub-header"><a href="/day-13/#dispatch-redux-action" class="sidebar-link">Dispatch Redux Action</a></li><li class="sidebar-sub-header"><a href="/day-13/#accessing-redux-state" class="sidebar-link">Accessing Redux State</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="state-management-using-redux"><a href="#state-management-using-redux" class="header-anchor">#</a> State Management Using Redux</h1> <p></p><div class="table-of-contents"><ul><li><a href="#getting-started">Getting started</a><ul><li><a href="#install-redux-and-redux-tool-kit">Install Redux and Redux tool kit</a></li></ul></li><li><a href="#redux-store">Redux Store</a><ul><li><a href="#create-redux-store">Create Redux Store</a></li><li><a href="#define-redux-store">Define Redux Store</a></li><li><a href="#provide-redux-store-to-react-application-and-all-its-components">Provide Redux store to react application and all its components</a></li></ul></li><li><a href="#redux-state">Redux State</a><ul><li><a href="#create-redux-blog-state-slice">Create Redux Blog State Slice</a></li><li><a href="#define-redux-blog-state-slice">Define Redux Blog State Slice</a></li></ul></li><li><a href="#redux-reducers">Redux Reducers</a><ul><li><a href="#define-redux-reducers">Define Redux Reducers</a></li></ul></li><li><a href="#dispatch-redux-action">Dispatch Redux Action</a><ul><li><a href="#dispatch-redux-action">Dispatch Redux Action</a></li></ul></li><li><a href="#accessing-redux-state">Accessing Redux State</a><ul><li><a href="#accessing-redux-state">Accessing Redux State</a></li><li><a href="#final-updated-home-page">Final updated home page</a></li></ul></li></ul></div><p></p> <h2 id="getting-started"><a href="#getting-started" class="header-anchor">#</a> Getting started</h2> <h3 id="install-redux-and-redux-tool-kit"><a href="#install-redux-and-redux-tool-kit" class="header-anchor">#</a> Install Redux and Redux tool kit</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> @reduxjs/toolkit react-redux
-</code></pre></div><h2 id="redux-store"><a href="#redux-store" class="header-anchor">#</a> Redux Store</h2> <h3 id="create-redux-store"><a href="#create-redux-store" class="header-anchor">#</a> Create Redux Store</h3> <p>In <code>frontend/src/app/</code> create a file called <code>store.js</code></p> <p><img src="/redux-store-file-structure.png" alt="Redux Store File Structure"></p> <h3 id="define-redux-store"><a href="#define-redux-store" class="header-anchor">#</a> Define Redux Store</h3> <p>Define Redux store byt importing configureStore from &quot;@reduxjs/toolkit&quot; and instantiate an instance of store with your defined reducers.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> configureStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@reduxjs/toolkit&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> authReducer <span class="token keyword">from</span> <span class="token string">&quot;../features/authSlice&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> blogReducer <span class="token keyword">from</span> <span class="token string">&quot;../features/blogsSlice&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> categoryReducer <span class="token keyword">from</span> <span class="token string">&quot;../features/categoriesSlice&quot;</span><span class="token punctuation">;</span>
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Day 13</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ix-vue-press/day-13/" aria-current="page" class="active sidebar-link">Multi-Part Upload</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ix-vue-press/day-13/#formdata" class="sidebar-link">FormData</a></li><li class="sidebar-sub-header"><a href="/ix-vue-press/day-13/#example" class="sidebar-link">Example</a></li></ul></li><li><a href="/ix-vue-press/day-13/multer.html" class="sidebar-link">Multer with Node.js</a></li><li><a href="/ix-vue-press/day-13/images.html" class="sidebar-link">Image Storing &amp; Consuming</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="multi-part-upload"><a href="#multi-part-upload" class="header-anchor">#</a> Multi-Part Upload</h1> <p></p><div class="table-of-contents"><ul><li><a href="#formdata">FormData</a><ul><li><a href="#syntax">Syntax</a></li></ul></li><li><a href="#example">Example</a><ul><li><a href="#html-form">HTML Form</a></li><li><a href="#fetch-method">Fetch Method</a></li></ul></li></ul></div><p></p> <h2 id="formdata"><a href="#formdata" class="header-anchor">#</a> FormData</h2> <h3 id="syntax"><a href="#syntax" class="header-anchor">#</a> Syntax</h3> <div class="language-jsx extra-class"><pre class="language-jsx"><code><span class="token keyword">const</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="formdata-methods"><a href="#formdata-methods" class="header-anchor">#</a> FormData Methods</h4> <div class="language-jsx extra-class"><pre class="language-jsx"><code><span class="token comment">// Append a key-value pair to the object</span>
+<span class="token function">append</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Delete a key-value pair </span>
+<span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Returns an iterator object, used to list key value pairs</span>
+<span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Return the value of a key</span>
+<span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Return all values of a key</span>
+<span class="token function">getAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Check if key exists </span>
+<span class="token function">has</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Returns an iterator object, used to list available keys</span>
+<span class="token function">keys</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// Add value to a key, replaces the value if key already exits</span>
+<span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+<span class="token comment">// Returns an iterator object for the values of the FormData object</span>
+<span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="example"><a href="#example" class="header-anchor">#</a> Example</h2> <h3 id="html-form"><a href="#html-form" class="header-anchor">#</a> HTML Form</h3> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>container<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>File Upload<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- Enctype attribute specifies he method of encoding the form data--&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form<span class="token punctuation">&quot;</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>multipart/form-data<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>input-group<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>files<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Select files<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>file<span class="token punctuation">&quot;</span></span> <span class="token attr-name">multiple</span> <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>submit-btn<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>submit<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Upload<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>index.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="fetch-method"><a href="#fetch-method" class="header-anchor">#</a> Fetch Method</h3> <div class="language-jsx extra-class"><pre class="language-jsx"><code><span class="token keyword">const</span> form <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;form&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> inputFile <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;file&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">export</span> <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">configureStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">reducer</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">auth</span><span class="token operator">:</span> authReducer<span class="token punctuation">,</span>
-    <span class="token literal-property property">blogs</span><span class="token operator">:</span> blogReducer<span class="token punctuation">,</span>
-    <span class="token literal-property property">categories</span><span class="token operator">:</span> categoryReducer<span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre></div><h3 id="provide-redux-store-to-react-application-and-all-its-components"><a href="#provide-redux-store-to-react-application-and-all-its-components" class="header-anchor">#</a> Provide Redux store to react application and all its components</h3> <p>In index.js in the root directory of your project import the Provider element from redux ad import your store created in the last step. Wrap the Base App element in the redux provider element and pass in store as an argument to provide the react application access tot he global state and the redux API.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">&quot;react-dom/client&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token string">&quot;./index.css&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&quot;./App&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> store <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./app/store&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Provider <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-redux&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> formData <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> root <span class="token operator">=</span> ReactDOM<span class="token punctuation">.</span><span class="token function">createRoot</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;root&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-root<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
-  <span class="token operator">&lt;</span>React<span class="token punctuation">.</span>StrictMode<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>Provider store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token operator">&gt;</span>
-      <span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">&gt;</span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>React<span class="token punctuation">.</span>StrictMode<span class="token operator">&gt;</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre></div><h2 id="redux-state"><a href="#redux-state" class="header-anchor">#</a> Redux State</h2> <h3 id="create-redux-blog-state-slice"><a href="#create-redux-blog-state-slice" class="header-anchor">#</a> Create Redux Blog State Slice</h3> <p>In <code>frontend/src/app/features</code> create a file called <code>blogSlice.js</code></p> <p><img src="/redux-features-file-structure.png" alt="Redux State File Structure"></p> <h3 id="define-redux-blog-state-slice"><a href="#define-redux-blog-state-slice" class="header-anchor">#</a> Define Redux Blog State Slice</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createSlice<span class="token punctuation">,</span> createAsyncThunk <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@reduxjs/toolkit&quot;</span><span class="token punctuation">;</span>
+<span class="token comment">// Event listener for the submit button on HTML form</span>
+<span class="token keyword">const</span> <span class="token function-variable function">handleSubmit</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">import</span> blogService <span class="token keyword">from</span> <span class="token string">&quot;../services/blogService&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> initialState <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">blog</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">blogs</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">isError</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">isSuccess</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">isLoading</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> blogsSlice <span class="token operator">=</span> <span class="token function">createSlice</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;blogs&quot;</span><span class="token punctuation">,</span>
-  initialState<span class="token punctuation">,</span>
-  <span class="token literal-property property">reducers</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token function-variable function">reset</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> initialState<span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token punctuation">{</span> reset <span class="token punctuation">}</span> <span class="token operator">=</span> blogsSlice<span class="token punctuation">.</span>actions<span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> blogsSlice<span class="token punctuation">.</span>reducer<span class="token punctuation">;</span>
-</code></pre></div><h2 id="redux-reducers"><a href="#redux-reducers" class="header-anchor">#</a> Redux Reducers</h2> <h3 id="define-redux-reducers"><a href="#define-redux-reducers" class="header-anchor">#</a> Define Redux Reducers</h3> <p>Since we want to keep the blogs data in state, we need a reducer to fetch the data from the our backend API and set the blogs state. We then need to move the HTTP request from the useEffect hook in the Home page to it's own Reducer in the blog state slice. We can then dispatch the fetchBlogs action to query the API and store the response in global state. We use the createAsyncThunk function from &quot;@reduxjs/toolkit&quot; to handle async reducer functions. This allows the state slice to listen to the events such as pending, fulfilled and rejected.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createSlice<span class="token punctuation">,</span> createAsyncThunk <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;@reduxjs/toolkit&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> blogService <span class="token keyword">from</span> <span class="token string">&quot;../services/blogService&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> initialState <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">blog</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">blogs</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">isError</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">isSuccess</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">isLoading</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> fetchBlogs <span class="token operator">=</span> <span class="token function">createAsyncThunk</span><span class="token punctuation">(</span>
-  <span class="token string">&quot;blogs/fetchBlogs&quot;</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">_<span class="token punctuation">,</span> thunkAPI</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">try</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token keyword">await</span> blogService<span class="token punctuation">.</span><span class="token function">fetchBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">const</span> message <span class="token operator">=</span> error<span class="token punctuation">.</span>message <span class="token operator">||</span> error<span class="token punctuation">;</span>
-      <span class="token keyword">return</span> thunkAPI<span class="token punctuation">.</span><span class="token function">rejectWithValue</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> file <span class="token keyword">of</span> inputFile<span class="token punctuation">.</span>files<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Append method to add the file formData</span>
+        formData<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">&quot;files&quot;</span><span class="token punctuation">,</span> file<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// API Route for the file upload</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">&quot;API_ENDPOINT&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token comment">// HTTP Request</span>
+        <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">&quot;POST&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">body</span><span class="token operator">:</span> formData<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token string">&quot;Something went wrong!&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token keyword">export</span> <span class="token keyword">const</span> blogsSlice <span class="token operator">=</span> <span class="token function">createSlice</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">&quot;blogs&quot;</span><span class="token punctuation">,</span>
-  initialState<span class="token punctuation">,</span>
-  <span class="token literal-property property">reducers</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token function-variable function">reset</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> initialState<span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function-variable function">extraReducers</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">builder</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    builder
-      <span class="token punctuation">.</span><span class="token function">addCase</span><span class="token punctuation">(</span>fetchBlogs<span class="token punctuation">.</span>pending<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        state<span class="token punctuation">.</span>isLoading <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span><span class="token function">addCase</span><span class="token punctuation">(</span>fetchBlogs<span class="token punctuation">.</span>fulfilled<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> <span class="token punctuation">{</span> payload <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        state<span class="token punctuation">.</span>blogs <span class="token operator">=</span> payload<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
-        state<span class="token punctuation">.</span>isSuccess <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        state<span class="token punctuation">.</span>isLoading <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        state<span class="token punctuation">.</span>message <span class="token operator">=</span> payload<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span><span class="token function">addCase</span><span class="token punctuation">(</span>fetchBlogs<span class="token punctuation">.</span>rejected<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> <span class="token punctuation">{</span> payload <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        state<span class="token punctuation">.</span>message <span class="token operator">=</span> payload<span class="token punctuation">;</span>
-        state<span class="token punctuation">.</span>isError <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        state<span class="token punctuation">.</span>isLoading <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token punctuation">{</span> reset <span class="token punctuation">}</span> <span class="token operator">=</span> blogsSlice<span class="token punctuation">.</span>actions<span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> blogsSlice<span class="token punctuation">.</span>reducer<span class="token punctuation">;</span>
-</code></pre></div><h2 id="dispatch-redux-action"><a href="#dispatch-redux-action" class="header-anchor">#</a> Dispatch Redux Action</h2> <h3 id="dispatch-redux-action-2"><a href="#dispatch-redux-action-2" class="header-anchor">#</a> Dispatch Redux Action</h3> <p>We need to then update the useEffect hook in the Home page dispatch the fetchBlogs action to query the API and store the response in global state.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useDispatch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-redux&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> fetchBlogs<span class="token punctuation">,</span> reset <span class="token keyword">as</span> resetBlogs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../features/blogsSlice&quot;</span><span class="token punctuation">;</span>
-<span class="token operator">...</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">HomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token operator">...</span>
-
-  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token function">useDispatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">fetchBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">resetBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>dispatch<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token operator">...</span>
-
-<span class="token punctuation">}</span>
-
-</code></pre></div><h2 id="accessing-redux-state"><a href="#accessing-redux-state" class="header-anchor">#</a> Accessing Redux State</h2> <h3 id="accessing-redux-state-2"><a href="#accessing-redux-state-2" class="header-anchor">#</a> Accessing Redux State</h3> <p>We need the Home page component to subscribe the blogs state and update the UI whent he state changes. We can do this by importing useSelector from react-redux and destructuring the blog state slice. Every time the global state slice that we are listening to update the component will re render.</p> <div class="language-js extra-class"><div class="highlight-lines"><div class="highlighted"> </div><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br></div><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> useDispatch<span class="token punctuation">,</span> useSelector <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-redux&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> fetchBlogs<span class="token punctuation">,</span> reset <span class="token keyword">as</span> resetBlogs <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../features/blogsSlice&quot;</span><span class="token punctuation">;</span>
-<span class="token operator">...</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">HomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token operator">...</span>
-
-  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token function">useDispatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> <span class="token punctuation">{</span>
-    blogs<span class="token punctuation">,</span>
-    <span class="token literal-property property">isError</span><span class="token operator">:</span> isBlogsError<span class="token punctuation">,</span>
-    <span class="token literal-property property">isSuccess</span><span class="token operator">:</span> blogsSuccess<span class="token punctuation">,</span>
-    <span class="token literal-property property">isLoading</span><span class="token operator">:</span> isLoadingBlogs<span class="token punctuation">,</span>
-    <span class="token literal-property property">message</span><span class="token operator">:</span> blogsMessage<span class="token punctuation">,</span>
-  <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useSelector</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>blogs<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">fetchBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">resetBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>dispatch<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token operator">...</span>
-  
-<span class="token punctuation">}</span>
-
-</code></pre></div><h3 id="final-updated-home-page"><a href="#final-updated-home-page" class="header-anchor">#</a> Final updated home page</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> useEffect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token punctuation">{</span> useDispatch<span class="token punctuation">,</span> useSelector <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-redux&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> fetchBlogs<span class="token punctuation">,</span> reset <span class="token keyword">as</span> resetBlog <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../features/blogsSlice&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>
-  fetchCategories<span class="token punctuation">,</span>
-  reset <span class="token keyword">as</span> resetCategory<span class="token punctuation">,</span>
-<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../features/categoriesSlice&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Toast<span class="token punctuation">,</span> ToastContainer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react-bootstrap&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token string">&quot;../../App.css&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> Heading <span class="token keyword">from</span> <span class="token string">&quot;../../components/Heading&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> Navbar <span class="token keyword">from</span> <span class="token string">&quot;../../components/Navbar&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> BlogGrid <span class="token keyword">from</span> <span class="token string">&quot;../../components/BlogGrid&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> Footer <span class="token keyword">from</span> <span class="token string">&quot;../../components/Footer&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> SubHeading <span class="token keyword">from</span> <span class="token string">&quot;../../components/SubHeading&quot;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> CategoryList <span class="token keyword">from</span> <span class="token string">&quot;../../components/CategoryList&quot;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">HomePage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token function">useDispatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">const</span> <span class="token punctuation">{</span>
-    blogs<span class="token punctuation">,</span>
-    <span class="token literal-property property">isError</span><span class="token operator">:</span> isBlogsError<span class="token punctuation">,</span>
-    <span class="token literal-property property">isSuccess</span><span class="token operator">:</span> blogsSuccess<span class="token punctuation">,</span>
-    <span class="token literal-property property">isLoading</span><span class="token operator">:</span> isLoadingBlogs<span class="token punctuation">,</span>
-    <span class="token literal-property property">message</span><span class="token operator">:</span> blogsMessage<span class="token punctuation">,</span>
-  <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useSelector</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>blogs<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> <span class="token punctuation">{</span>
-    categories<span class="token punctuation">,</span>
-    <span class="token literal-property property">isError</span><span class="token operator">:</span> isCategoriesError<span class="token punctuation">,</span>
-    <span class="token literal-property property">isSuccess</span><span class="token operator">:</span> isCategoriesSuccess<span class="token punctuation">,</span>
-    <span class="token literal-property property">isLoading</span><span class="token operator">:</span> isLoadingCategories<span class="token punctuation">,</span>
-    <span class="token literal-property property">message</span><span class="token operator">:</span> categoriesMessage<span class="token punctuation">,</span>
-  <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useSelector</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>categories<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">fetchCategories</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">fetchBlogs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">resetBlog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">resetCategory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>dispatch<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>isLoadingCategories <span class="token operator">||</span> isLoadingBlogs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>Loading<span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
-      <span class="token operator">&lt;</span>Navbar <span class="token operator">/</span><span class="token operator">&gt;</span>
-      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;container&quot;</span><span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>Heading <span class="token operator">/</span><span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>SubHeading subHeading<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&quot;Recent Blog Posts&quot;</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>BlogGrid blogPosts<span class="token operator">=</span><span class="token punctuation">{</span>blogs<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>BlogGrid<span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>SubHeading subHeading<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">&quot;Categories&quot;</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>CategoryList categories<span class="token operator">=</span><span class="token punctuation">{</span>categories<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>CategoryList<span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>Footer <span class="token operator">/</span><span class="token operator">&gt;</span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
-      <span class="token operator">&lt;</span>ToastContainer className<span class="token operator">=</span><span class="token string">&quot;p-3&quot;</span> position<span class="token operator">=</span><span class="token string">&quot;top-end&quot;</span> style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token literal-property property">zIndex</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>Toast
-          bg<span class="token operator">=</span><span class="token string">&quot;danger&quot;</span>
-          onClose<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
-          autohide
-          show<span class="token operator">=</span><span class="token punctuation">{</span>isCategoriesError <span class="token operator">||</span> isBlogsError<span class="token punctuation">}</span>
-          delay<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">5000</span><span class="token punctuation">}</span>
-        <span class="token operator">&gt;</span>
-          <span class="token operator">&lt;</span>Toast<span class="token punctuation">.</span>Header<span class="token operator">&gt;</span>
-            <span class="token operator">&lt;</span>strong className<span class="token operator">=</span><span class="token string">&quot;me-auto&quot;</span><span class="token operator">&gt;</span>Error<span class="token operator">&lt;</span><span class="token operator">/</span>strong<span class="token operator">&gt;</span>
-          <span class="token operator">&lt;</span><span class="token operator">/</span>Toast<span class="token punctuation">.</span>Header<span class="token operator">&gt;</span>
-          <span class="token operator">&lt;</span>Toast<span class="token punctuation">.</span>Body style<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">&quot;white&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
-            <span class="token punctuation">{</span>categoriesMessage <span class="token operator">||</span> blogsMessage<span class="token punctuation">}</span>
-          <span class="token operator">&lt;</span><span class="token operator">/</span>Toast<span class="token punctuation">.</span>Body<span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>Toast<span class="token operator">&gt;</span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>ToastContainer<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.00b8489d.js" defer></script><script src="/assets/js/2.640495aa.js" defer></script><script src="/assets/js/1.416e4fa3.js" defer></script><script src="/assets/js/33.e672efeb.js" defer></script>
+form<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&quot;submit&quot;</span><span class="token punctuation">,</span> handleSubmit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/ix-vue-press/day-13/multer.html">
+        Multer with Node.js
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/ix-vue-press/assets/js/app.6c541724.js" defer></script><script src="/ix-vue-press/assets/js/2.640495aa.js" defer></script><script src="/ix-vue-press/assets/js/1.416e4fa3.js" defer></script><script src="/ix-vue-press/assets/js/31.7c68f2cc.js" defer></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 const { description } = require("../../package");
 
 module.exports = {
-  // base: "/ix-vue-press/",
+  base: "/ix-vue-press/",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -174,35 +174,35 @@ module.exports = {
         {
           title: "Day 11",
           collapsable: false,
-          children: ["",],
+          children: [""],
         },
       ],
       "/day-12/": [
         {
           title: "Day 12",
           collapsable: false,
-          children: ["", "multer", "images"],
+          children: [""],
         },
       ],
       "/day-13/": [
         {
           title: "Day 13",
           collapsable: false,
-          children: ["",],
+          children: ["", "multer", "images"],
         },
       ],
       "/day-14/": [
         {
           title: "Day 13",
           collapsable: false,
-          children: ["",],
+          children: [""],
         },
       ],
       "/day-17/": [
         {
           title: "Day 13",
           collapsable: false,
-          children: ["",],
+          children: [""],
         },
       ],
     },
