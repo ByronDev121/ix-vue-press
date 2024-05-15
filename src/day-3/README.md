@@ -38,6 +38,10 @@ Stop local server and run the following CLI command. (to confirm check `node_mod
 npm install bootstrap
 ```
 
+::: tip
+\*Note the bootstrap npm package has been added to the package.json dependencies array and installed (added) in the node_modules directory.
+:::
+
 Import `bootstrap/dist/css/bootstrap.min.css` into `App.js`
 
 App.js
@@ -256,6 +260,8 @@ export default class Header extends React.Component {
 
 We can create a HomePage component and add styling to it using bootstrap then render that component in the main App component.
 
+`frontend/src/App.js`
+
 ```jsx
 const HomePage = () => {
   return (
@@ -292,5 +298,643 @@ function App() {
       <HomePage />
     </div>
   );
+}
+```
+
+### Navbar
+
+In `frontend/src/` create a components directory and add dir and a file called Navbar/index.js
+
+![Frontend Components File Structure](/frontend-components-file-structure.png)
+
+```js
+import React from "react";
+
+export default function Navbar() {
+  return (
+    <nav className="navbar navbar-expand-lg">
+      <div style={{ margin: "0px 5%" }} className="container-fluid">
+        <a className="navbar-brand" href="#">
+          iX Software Engineering Blog
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">
+                Home
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+}
+```
+
+### Heading
+
+`frontend/src/components/Heading/index.js`
+
+```js
+import React from "react";
+
+export default function Heading() {
+  return <p className="page-title">THE BLOG</p>;
+}
+```
+
+`frontend/src/components/Heading/index.css`
+
+```css
+.page-title {
+  text-align: center;
+  font-size: calc(100px + 2vw);
+  font-weight: bold;
+  border-top: 1px solid #9fa2a7;
+  border-bottom: 1px solid #9fa2a7;
+  margin: 16px 0px;
+}
+```
+
+### Subheading
+
+`frontend/src/components/SubHeading/index.js`
+
+```js
+import React from "react";
+
+export default function SubHeading({ subHeading }) {
+  return <p className="page-subtitle">{subHeading}</p>;
+}
+```
+
+:::tip
+Notice that data is being passed into this component from the parent component. These data is called "props" (properties). We will learn more about properties tomorrow.
+:::
+
+`frontend/src/components/SubHeading/index.css`
+
+```css
+.page-subtitle {
+  margin-top: 32px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+}
+```
+
+### BlogGrid
+
+`frontend/src/components/BlogGrid/index.js`
+
+```js
+import React from "react";
+
+import "./index.css";
+
+import BlogItem from "../BlogItem";
+
+export default function BlogGrid({ blogPosts }) {
+  if (!blogPosts || !blogPosts.length) {
+    return null;
+  }
+
+  return (
+    <>
+      <div className="blog-grid-container">
+        <div className="item-1">
+          {blogPosts.length > 0 && (
+            <BlogItem
+              imageOrientation={"top"}
+              index={0}
+              blogPost={blogPosts[0]}
+            />
+          )}
+        </div>
+
+        <div className="right-block">
+          {blogPosts.length > 1 && (
+            <div className="item-2">
+              <BlogItem
+                imageOrientation={"left"}
+                index={1}
+                blogPost={blogPosts[1]}
+              />
+            </div>
+          )}
+
+          {blogPosts.length > 2 && (
+            <div className="item-3">
+              <BlogItem index={2} blogPost={blogPosts[2]} />
+            </div>
+          )}
+        </div>
+      </div>
+      {blogPosts.length > 3 && (
+        <div className="item-4">
+          <BlogItem index={3} blogPost={blogPosts[3]} />
+        </div>
+      )}
+    </>
+  );
+}
+```
+
+:::tip
+\*Note: This component makes use of another component called BlogItem.
+:::
+
+`frontend/src/components/BlogGrid/index.css`
+
+```css
+.blog-grid-container {
+  padding: 16px 0px;
+  width: 100%;
+  display: flex;
+  height: 550px;
+}
+
+.right-block {
+  width: 50%;
+  display: block;
+}
+
+.item-1 {
+  width: 50%;
+  padding-right: 12px;
+}
+
+.item-2 {
+  height: 50%;
+  padding-left: 12px;
+  padding-bottom: 12px;
+}
+
+.item-3 {
+  height: 50%;
+  padding-left: 12px;
+  padding-top: 12px;
+}
+
+.item-4 {
+  padding: 16px 0px;
+  width: 100%;
+  height: 246px;
+}
+
+@media (max-width: 1024px) {
+  .blog-grid-container {
+    display: block;
+    height: auto;
+  }
+
+  .right-block {
+    width: 100%;
+  }
+
+  .item-1 {
+    width: 100%;
+    padding-right: 0px;
+  }
+
+  .item-2 {
+    padding-left: 0px;
+    padding-bottom: 0px;
+  }
+
+  .item-3 {
+    padding-left: 0px;
+    padding-top: 0px;
+  }
+
+  .item-4 {
+    padding: 0px;
+    height: 100%;
+  }
+}
+```
+
+### Blog Item
+
+`frontend/src/components/BlogItem/index.js`
+
+```js
+import React from "react";
+
+import BlogItemText from "../BlogItemText";
+
+import "../../App.css";
+import "./index.css";
+
+export default function BlogItem({
+  index,
+  blogPost,
+  setBlog,
+  imageOrientation,
+}) {
+  if (imageOrientation === "top") {
+    return (
+      <div
+        key={index}
+        className="card-1"
+        onClick={() => console.log("TODO: nav to blog")}
+      >
+        <img src={blogPost.image} className="card-img-top" alt="..." />
+        <div className="card-text-bottom">
+          <BlogItemText
+            blogPost={blogPost}
+            headerFontSize="20px"
+          ></BlogItemText>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div
+        key={index}
+        className="card-2"
+        onClick={() => console.log("TODO: nav to blog")}
+      >
+        <img src={blogPost.image} className="card-img-left" alt="..." />
+        <div className="card-text-right">
+          <BlogItemText
+            blogPost={blogPost}
+            headerFontSize="20px"
+          ></BlogItemText>
+        </div>
+      </div>
+    );
+  }
+}
+```
+
+:::tip
+\*Note: This component makes use of another component called BlogItemText.
+:::
+
+`frontend/src/components/BlogItem/index.css`
+
+```css
+.card-1 {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-1:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-2 {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-2:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.card-img-left {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text-bottom {
+  height: 100%;
+  text-align: left;
+  padding: 8px;
+}
+
+.card-text-right {
+  text-align: left;
+  height: 100%;
+  width: 50%;
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  .card-2 {
+    display: block;
+  }
+
+  .card-img-left {
+    width: 100%;
+    height: 50%;
+  }
+
+  .card-text-right {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+```
+
+### Blog Item Text
+
+`frontend/src/components/BlogItem/index.js`
+
+```js
+import React from "react";
+
+import Categories from "../Categories";
+import "./index.css";
+
+export default function BlogItemText({ blogPost, headerFontSize }) {
+  return (
+    <div>
+      <div style={{ display: "flex" }}>
+        <p className="date-author-text">
+          {blogPost.author.firstName} {blogPost.author.lastName}
+        </p>
+        <div className="dot-divider"></div>
+        <p className="date-author-text">
+          {blogPost.createdAt.substring(0, 10)}
+        </p>
+      </div>
+      <p
+        style={{
+          fontSize: headerFontSize,
+          fontWeight: "bold",
+          textAlign: "left",
+        }}
+      >
+        {blogPost.title}
+      </p>
+      <p style={{ fontSize: "16px", color: "#667085", textAlign: "left" }}>
+        {blogPost.description.substring(0, 100)}...
+      </p>
+      <Categories blogPost={blogPost} />
+    </div>
+  );
+}
+```
+
+:::tip
+\*Note: This component makes use of another component called Categories.
+:::
+
+`frontend/src/components/BlogItemText/index.css`
+
+```css
+.date-author-text {
+  font-size: 14px;
+  color: #6941c6;
+  font-weight: bold;
+}
+
+.dot-divider {
+  margin: 9px 4px;
+  width: 4px;
+  height: 4px;
+  background: #6941c6;
+  border-radius: 50%;
+}
+```
+
+### Categories
+
+`frontend/src/components/Categories/index.js`
+
+```js
+import React from "react";
+
+export default function Categories({ blogPost }) {
+  return (
+    <div className="flex-wrap">
+      {blogPost.categories.map((category, index) => {
+        return (
+          <p
+            key={index}
+            className="category-tag"
+            style={{
+              color: category.color,
+              backgroundColor: category.color + "33",
+            }}
+          >
+            {category.title}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+```
+
+### Category List
+
+`frontend/src/components/CategoryList/index.js`
+
+```js
+import React from "react";
+
+import "./index.css";
+
+export default function CategoryList({ categories }) {
+  return (
+    <div className="category-list">
+      {categories.map((category) => {
+        return (
+          <button
+            key={category.id}
+            className="card"
+            style={{ borderRadius: "0px", border: "none" }}
+            onClick={() => {
+              console.log("TODO: Navigate to categories page");
+            }}
+          >
+            <div
+              className="card-body"
+              style={{
+                backgroundColor: category.color + "33",
+                position: "relative",
+                zIndex: 0,
+              }}
+            >
+              <h5 className="card-title">{category.title}</h5>
+            </div>
+            <div className="card-body">
+              <p className="card-text">
+                {category.description.substring(1, 100)} ...
+              </p>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+```
+
+`frontend/src/components/CategoryList/index.css`
+
+```css
+.category-list {
+  padding: 16px 0px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-gap: 2%;
+  row-gap: 32px;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 992px) {
+  .category-list {
+    grid-template-columns: 49% 49%;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-list {
+    grid-template-columns: 100%;
+  }
+}
+```
+
+### Update HomePage Component
+
+`frontend/src/components/HomePage/index.js`
+
+```js
+import React from "react";
+
+import Heading from "../Heading";
+import Navbar from "../Navbar";
+import BlogGrid from "../BlogGrid";
+import Footer from "../Footer";
+import SubHeading from "../SubHeading";
+import CategoryList from "../CategoryList";
+
+// Week 1: Import the blogPosts and categories from the dummy-data.json file
+const data = require("../../dummy-data.json");
+const blogs = data.blogPosts.reverse();
+const categories = data.categories;
+
+export default function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <div className="container">
+        <Heading />
+        <SubHeading subHeading={"Recent Blog Posts"} />
+        <BlogGrid blogPosts={blogs}></BlogGrid>
+        <SubHeading subHeading={"Categories"} />
+        <CategoryList categories={categories}></CategoryList>
+        <Footer />
+      </div>
+    </>
+  );
+}
+```
+
+### Update App.js
+
+`frontend/src/App.js`
+
+```jsx
+import HomePage from "./components/HomePage";
+
+function App() {
+  return (
+    <div className="App">
+      <HomePage />
+    </div>
+  );
+}
+```
+
+```js
+import React, { useEffect, useState } from "react";
+
+import { useParams } from "react-router-dom";
+
+import { Toast, ToastContainer } from "react-bootstrap";
+
+import Navbar from "../../components/Navbar";
+import Heading from "../../components/Heading";
+import BlogList from "../../components/BlogList";
+import Footer from "../../components/Footer";
+
+import "../../App.css";
+import "./index.css";
+
+// Week 1: Import the blogPosts and categories from the dummy-data.json file
+const data = require("../../dummy-data.json");
+let blogPosts = data.blogPosts;
+const categories = data.categories;
+
+export default function BlogsPage() {
+
+  const { categoryIdParam: categoryId } = useParams();
+  const [categoryId, setCategoryId] = useState(categoryIdParam);
+
+  // Week 1: Filter the blogPosts based on the categoryId
+  blogPosts = blogPosts.filter((x) =>
+    categoryId !== undefined
+      ? x.categories.find((y) => y.id.toString() === categoryId)
+      : true
+  );
+
+  return (
+    <>
+      <Navbar />
+      <div className="container">
+        <Heading />
+        <div className="scroll-menu">
+          {categories.map((category, index) => {
+            return categoryId === category.id.toString() ? (
+              <button
+                key={index}
+                onClick={setCategoryId(category.id)}
+                style={{ color: "blue" }}
+              >
+                <p key={index}>{category.title}</p>
+              </button>
+            ) : (
+              <button
+                key={index}
+                onClick={setCategoryId(category.id)}
+                style={{ color: "black" }}
+              >
+                <p key={index}>{category.title}</p>
+              </button>
+            );
+          })}
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <p className="page-subtitle">Blog Posts</p>
+        </div>
+        <BlogList setBlog={setBlog} blogPosts={blogs} />
+      </div>
+      <Footer />
+    <>
+  )
 }
 ```

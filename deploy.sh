@@ -1,88 +1,19 @@
 #!/usr/bin/env sh
 
+# abort on errors
 set -e
 
-if [ -z "$ACCESS_TOKEN" ] && [ -z "$GITHUB_TOKEN" ]
-then
-  echo "You must provide the action with either a Personal Access Token or the GitHub Token secret in order to deploy."
-  exit 1
-fi
+# build
+npm run build
 
-if [ -z "$TARGET_BRANCH" ]
-then
-  echo "You must provide the action with a branch name it should deploy to, for example gh-pages or docs."
-  exit 1
-fi
+# navigate into the build output directory
+cd src/.vuepress/dist
 
-if [ -z "$BUILD_DIR" ]
-then
-  echo "You must provide the action with the folder name in the repository where your compiled page lives."
-  exit 1
-fi
+git init
+git add -A
+git commit -m 'deploy'
 
-case "$BUILD_DIR" in /*|./*)
-  echo "The deployment folder cannot be prefixed with '/' or './'. Instead reference the folder name directly."
-  exit 1
-esac
+# if you are deploying to https://<USERNAME>.github.io/<REPO>
+git push -f git@github.com:ByronDev121/ix-vue-press.git main:gh-pages
 
-# Installs Git and jq.
-apt-get update && \
-apt-get install -y git && \
-apt-get install -y jq && \
-
-# Gets the commit email/name if it exists in the push event payload.
-COMMIT_EMAIL=`jq '.pusher.email' ${GITHUB_EVENT_PATH}`
-COMMIT_NAME=`jq '.pusher.name' ${GITHUB_EVENT_PATH}`
-
-# If the commit email/name is not found in the event payload then it falls back to the actor.
-if [ -z "$COMMIT_EMAIL" ]
-then
-  COMMIT_EMAIL="${GITHUB_ACTOR:-github-pages-deploy-action}@users.noreply.github.com"
-fi
-
-if [ -z "$COMMIT_NAME" ]
-then
-  COMMIT_NAME="${GITHUB_ACTOR:-GitHub Pages Deploy Action}"
-fi
-
-# Directs the action to the the Github workspace.
-cd $GITHUB_WORKSPACE && \
-
-# Configures Git.
-git init && \
-git config --global user.email "${COMMIT_EMAIL}" && \
-git config --global user.name "${COMMIT_NAME}" && \
-
-## Initializes the repository path using the access token.
-REPOSITORY_PATH="https://${ACCESS_TOKEN:-"x-access-token:$GITHUB_TOKEN"}@github.com/${GITHUB_REPOSITORY}.git" && \
-
-# Checks to see if the remote exists prior to deploying.
-# If the branch doesn't exist it gets created here as an orphan.
-if [ "$(git ls-remote --heads "$REPOSITORY_PATH" "$TARGET_BRANCH" | wc -l)" -eq 0 ];
-then
-  echo "Creating remote branch ${TARGET_BRANCH} as it doesn't exist..."
-  git checkout "${BASE_BRANCH:-main}" && \
-  git checkout --orphan $TARGET_BRANCH && \
-  git rm -rf . && \
-  touch README.md && \
-  git add README.md && \
-  git commit -m "Initial ${TARGET_BRANCH} commit" && \
-  git push $REPOSITORY_PATH $TARGET_BRANCH
-fi
-
-# Checks out the base branch to begin the deploy process.
-git checkout "${BASE_BRANCH:-main}" && \
-
-# Builds the project if a build script is provided.
-echo "Running build scripts... $BUILD_SCRIPT" && \
-eval "$BUILD_SCRIPT" && \
-
-# Commits the data to Github.
-echo "Deploying to GitHub..." && \
-cd "./${BUILD_DIR}"
-git add -A . && \
-
-git commit -m "Deploying to ${TARGET_BRANCH} from ${BASE_BRANCH:-main} ${GITHUB_SHA}" --quiet && \
-git push $REPOSITORY_PATH `git subtree split --prefix $BUILD_DIR ${BASE_BRANCH:-main}`:$TARGET_BRANCH --force && \
-
-echo "Deployment succesful!"
+cd -

@@ -6,14 +6,20 @@
 Passing props between components is similar to attributes with HTML
 
 ### Syntax
-#### HTML syntax
-```html
-<input type="text" placeholder="Hello" />
+```jsx
+function funcName(prop) {
+    return 
+        <div> 
+            {prop}
+        </div>
+}
 ```
 
-#### Props Syntax
+### Syntax - Extra
+
 ```jsx
-<ComponentName property1="value" property2="value" property3="value" />
+function CategoryList(category)
+function CategoryList({ title, description, color })
 ```
 
 ## Installing PropTypes
@@ -29,42 +35,60 @@ import PropTypes from 'prop-types';
 ## PropTypes Syntax
 
 ```jsx
-Student.propTypes = {
-  name: PropTypes.string,
-  age: PropTypes.number,
-  attendance: PropTypes.bool,
+BlogItem.propTypes = {
+  index: PropTypes.number.isRequired,
+  blogPost: PropTypes.object.isRequired,
+  setBlog: PropTypes.func,
+  imageOrientation: PropTypes.string,
 };
 ```
 
 ## Implementation
 
-React *App.js*  
+Component - *BlogItemText *   
+Imports:
 ```jsx 
-import Student from './Student'
+import React from "react";
+import PropTypes from "prop-types";
 
-const App = () {
-    return (
-        <div className='container'>
-            <Student name='John' />
-        </div>
-    )
+import "./index.css";
+```
+Component:
+```jsx
+export default function BlogItemText({ blogPost, headerFontSize }) {
+  return (
+    <div>
+      <div style={{ display: "flex" }}>
+        <p className="date-author-text">
+          {blogPost.author.firstName} {blogPost.author.lastName}
+        </p>
+        <div className="dot-divider"></div>
+        <p className="date-author-text">
+          {blogPost.createdAt.substring(0, 10)}
+        </p>
+      </div>
+      <p
+        style={{
+          fontSize: headerFontSize,
+          fontWeight: "bold",
+          textAlign: "left",
+        }}
+      >
+        {blogPost.title}
+      </p>
+      <p style={{ fontSize: "16px", color: "#667085", textAlign: "left" }}>
+        {blogPost.description.substring(0, 100)}...
+      </p>
+    </div>
+  );
 }
 ```
-*Student.js*
+PropTypes:
 ```jsx
-import PropTypes from 'proper-types'
-
-const Student = ({ name }) {
-    return ( 
-        <header>
-            <h1>{name}</h1>
-        </header>
-    )
-}
-//Utilizing PropTypes
-Student.propTypes = {
-    name: PropTypes.string,
-}
+BlogItemText.propTypes = {
+  blogPost: PropTypes.object.isRequired,
+  headerFontSize: PropTypes.string,
+};
 ```
 
 

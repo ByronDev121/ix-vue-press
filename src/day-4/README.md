@@ -4,50 +4,66 @@
 
 ## Introduction
 
-### State
+### State Syntax
 
 ```jsx
-setState();
-userState();
+const ['state Name', 'set state function'] = userState('Default Value');
 ```
 ## State Implementation
 
 ### Initializing State
 ```jsx 
 import { useState } from 'react';
-const [count, setCount] = useState(0);
+const [blog, setBlog] = useState(null);
 ```
 
 ### Updating State 
 For class components
 ```jsx
-this.setState({ count: this.state.count +1 });
+import { useState } from 'react';
+const [blog, setBlog] = useState(null);
+this.setBlog({});
 ```
 For functional component
 ```jsx
-setCount(count + 1);
+setBlog({});
 ```
 
 ## ReactJS Built-in State Management  
 ### Hooks
-#### *useState*
 Hooks let you use state and other React features without writing a class
+
+#### *useState*
+Allows states to be managed within components.
 ```jsx 
 import { useState } from 'react';
 
-const Count = () => {
-    const [count, setCount] = useState(0);
+const [blog, setBlog] = useState({
+    image: "",
+    title: "",
+    description: "",
+  });
 
-    return ( 
-        <div>
-            <p>Count: {count}</p>
-            <button onClick={() => setCount(count + 1)}>Increment</button>
-        <div>
-    );
-};
+<button
+  style={{ margin: "16px" }}
+  type="button"
+  className="btn btn-outline-secondary"
+  data-bs-toggle="modal"
+  data-bs-target="#addBlogModal"
+  onClick={() => {
+    setBlog({
+      image: "",
+      title: "",
+      description: "",
+    });
+  }}
+>
+Add Blog Post
+</button>
 ```
 
 #### *userReducer*
+Allows state to be managed by dispatching actions and then responding to them in the reducer function.
 ```jsx
 import React, { useReducer } from 'react';
 
@@ -65,7 +81,6 @@ function reducer(state, action) {
      return { count: state.count  }
   }
 }
-
 ```
 Use the *dispatch* function with an action object when updating state
 ```jsx 
@@ -75,8 +90,6 @@ const Counter = () => {
   return (
     <div>
       Count: {state.count}
-       <br />
-       <br/>
        <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
        <button onClick={() => dispatch({ type: 'decrement'})}>Decrement</button>
        <button onClick={() => dispatch({ type: 'reset'})}>Reset</button>

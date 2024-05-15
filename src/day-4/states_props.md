@@ -7,82 +7,139 @@
 ### Passing State between components utilizing Props
 
 #### Parent Component
+
 ```jsx
 //Using props for state management between components
 import { useState } from 'react';
-import ChildComponent from "./ChildComponent";
-//Parent Component with Child Component embedded
-const ParentComponent = () => {
-    const [user, setUser] = useState("Byron");
+import CategoryList from "../../components/CategoryList";
+// Parent Component with Child Component embedded
+export default function CategoriesPage() {
+  const [category, setCategory] = useState({
+      title: "",
+      description: "",
+      color: "",
+  });
 
-    return (
-        <div>
-            <h1>Parent Component</h1>
-            <ChildComponent user={user} />
-        </div>
+  return (
+      <>
+        <Navbar />
+          <div className="container">
+            <Heading />
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <p className="page-subtitle">Categories</p>
+            </div>
+            <CategoryList
+              setCategory={setCategory}
+              categories={categories}
+            ></CategoryList>
+          </div>
+      </>
     );
-};
+}
 ```
 
 #### Child Component
+Child Component with passed in props argument
 ```jsx
-//Child Component with passed in props argument
-const ChildComponent = (props) => {
+import React from "react";
+import PropTypes from "prop-types";
 
-    return (
-        <div>
-            <h2>Child Component</h2>
-            <p>User from parent: {props.user}</p>
-        <div>
-    );
+export default function CategoryList({ categories, setCategory }) {
+  return (
+    <div className="category-list">
+      {categories.map((category, index) => {
+        return (
+            <div
+              className="card-body"
+              style={{
+                backgroundColor: category.color + "33",
+              }}
+            >
+            <button
+              type="button"
+              className="btn"
+              data-bs-toggle="modal"
+              data-bs-target="#editCategoryModal"
+              onClick={() => {
+                setCategory(category);
+              }}
+            >
+              <i className="bi bi-pencil-fill"></i>
+            </button>
+            <h5 className="card-title">{category.title}</h5>
+            <div className="card-body">
+              <p className="card-text">
+                {category.description.substring(1, 100)} ...
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+CategoryList.propTypes = {
+  categories: PropTypes.array.isRequired,
 };
 ```
 
-#### Extra
-Props can also be written differently
-```jsx
-const ChildComponent = (props) => {}; 
-const childComponent = ({ user }) => {}; 
-```
-### Props and Updating State
-Above the example shows how to pass a state with props from one component to another.
-However you can also make a component update the state that is passed to it.
-#### Parent Component
-Having the parent pass the function to the child component
-```jsx
-import { useState } from 'react';
-import ChildComponent from "./ChildComponent";
-//Parent Component
-const ParentComponent = () => {
-    const [user, setUser] = useState("Byron");
+### OnChange
 
-    const updateUser = (newUser) => {
-        setUser(newUser);
+```jsx
+import React, { useState } from "react";
+
+export default function LoginPage() {
+
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+    });
+
+    const onChange = (e) => {
+    setFormData((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+        }));
     };
 
     return (
-        <div>
-            <h1>Parent Component</h1>
-            <ChildComponent user={user} updateUser={updateUser} />
-        </div>
+        <>
+            <div className="html-body">
+                <main className="form-signin">
+                    <form onSubmit={onSubmit}>
+                    <h1 className="h3 mb-3 fw-normal">Please login</h1>
+                    <div className="form-floating">
+                        <input
+                        type="email"
+                        className="form-control"
+                        id="email"
+                        name="email"
+                        placeholder="name@example.com"
+                        value={email}
+                        onChange={onChange}
+                        />
+                        <label htmlFor="floatingInput">Email address</label>
+                    </div>
+                    <div className="form-floating">
+                        <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={onChange}
+                        />
+                        <label htmlFor="password">Password</label>
+                    </div>
+                    <button className="w-100 btn btn-lg btn-primary" type="submit">
+                        Sign in
+                    </button>
+                    </form>
+                </main>
+            </div>
+        </>
     );
-};
-```
-
-#### Child Component
-Having the child change the state in the parent with an input using an *onChange* event
-```jsx
-const ChildComponent = (props) => {
-    const handleChange = (event) => {
-        props.updateUser({value: event.target.value});
-    };
-
-    return (
-        <div>
-            <h2>Child Component</h2>
-            <p>User from parent: {props.user}</p>
-            <input type="text" value={props.user} onChanged={handleChange}/>
-        <div>
-    );
-};
+}
 ```
