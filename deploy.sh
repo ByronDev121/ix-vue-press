@@ -7,7 +7,6 @@ set -e
 npm run build
 
 # navigate into the build output directory
-cd src/.vuepress/dist
 
 git init
 git add -A
