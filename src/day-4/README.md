@@ -4,97 +4,92 @@
 
 ## Introduction
 
-### State Syntax
+### useState Hook
+
+Declares a state variable with a declared update state function and default value.
+
+#### Syntax
 
 ```jsx
-const ['state Name', 'set state function'] = userState('Default Value');
+const ["State Name", "Update State Function Name"] = useState("Default Value");
 ```
+
 ## State Implementation
 
 ### Initializing State
 ```jsx 
 import { useState } from 'react';
-const [blog, setBlog] = useState(null);
-```
-
-### Updating State 
-For class components
-```jsx
-import { useState } from 'react';
-const [blog, setBlog] = useState(null);
-this.setBlog({});
-```
-For functional component
-```jsx
-setBlog({});
+const [categoryId, setCategoryId] = useState();
 ```
 
 ## ReactJS Built-in State Management  
 ### Hooks
-Hooks let you use state and other React features without writing a class
+Hooks let you use state and other React features without writing a class.
 
 #### *useState*
 Allows states to be managed within components.
-```jsx 
-import { useState } from 'react';
 
-const [blog, setBlog] = useState({
-    image: "",
-    title: "",
-    description: "",
-  });
+##### BlogsPage Component
+Adding *CategoriesList* component to utilize *useState*.
 
-<button
-  style={{ margin: "16px" }}
-  type="button"
-  className="btn btn-outline-secondary"
-  data-bs-toggle="modal"
-  data-bs-target="#addBlogModal"
-  onClick={() => {
-    setBlog({
-      image: "",
-      title: "",
-      description: "",
-    });
-  }}
->
-Add Blog Post
-</button>
-```
-
-#### *userReducer*
-Allows state to be managed by dispatching actions and then responding to them in the reducer function.
 ```jsx
-import React, { useReducer } from 'react';
+import React, { useState } from "react";
 
-const initialState = { count: 0 }
- // The reducer function
-function reducer(state, action) {
-  switch (action.type) {
-    case 'increment':
-      return { count: state.count + 1 }
-    case 'decrement':
-      return { count: state.count - 1 }
-    case 'reset':
-      return {count: state.count = 0}
-    default:
-     return { count: state.count  }
+import Navbar from "../../components/Navbar";
+import Heading from "../../components/Heading";
+import BlogList from "../../components/BlogList";
+import Footer from "../../components/Footer";
+
+import "../../App.css";
+import "./index.css";
+
+// Importing dummy data 
+const data = require("../../dummy-data.json");
+let blogPosts = data.blogPosts;
+const categories = data.categories;
+
+export default function BlogsPage() {
+  //Initializing our states:
+  const [categoryId, setCategoryId] = useState();
+  const [blogs, setBlogs] = useState([]);
+
+  const CategoriesList = () => {
+    return categories.map((category, index) => {
+      return categoryId === category.id.toString() ? (
+        <button
+          key={index}
+          onClick={() => setCategoryId(category.id)}
+          style={{ color: "blue" }}
+        >
+          <p key={index}>{category.title}</p>
+        </button>
+      ) : (
+        <button
+          key={index}
+          onClick={() => setCategoryId(category.id)}
+          style={{ color: "black" }}
+        >
+          <p key={index}>{category.title}</p>
+        </button>
+      );
+    });
   }
-}
-```
-Use the *dispatch* function with an action object when updating state
-```jsx 
-const Counter = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <div>
-      Count: {state.count}
-       <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>
-       <button onClick={() => dispatch({ type: 'decrement'})}>Decrement</button>
-       <button onClick={() => dispatch({ type: 'reset'})}>Reset</button>
-    </div>
+    <>
+      <Navbar />
+      <div className="container">
+        <Heading />
+        <div className="scroll-menu">
+          <CategoriesList />
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <p className="page-subtitle">Blog Posts</p>
+        </div>
+        <BlogList blogPosts={blogPosts} />
+      </div>
+      <Footer />
+    </>
   );
-};
+}
 ```
-

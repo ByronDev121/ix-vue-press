@@ -104,6 +104,13 @@ module.exports = {
       // }
     ],
     sidebar: {
+      "/capstone-project/": [
+        {
+          title: "Capstone Project",
+          collapsable: false,
+          children: [""],
+        },
+      ],
       "/day-1/": [
         {
           title: "Day 1",
@@ -132,14 +139,14 @@ module.exports = {
         {
           title: "Day 4",
           collapsable: false,
-          children: ["", "props", "states_props"],
+          children: ["", "props", "exercise", "homework"],
         },
       ],
       "/day-5/": [
         {
           title: "Day 5",
           collapsable: false,
-          children: ["", "hooks", "context_api", "routes"],
+          children: ["", "routes"],
         },
       ],
       "/day-6/": [
@@ -193,14 +200,14 @@ module.exports = {
       ],
       "/day-14/": [
         {
-          title: "Day 13",
+          title: "Day 14",
           collapsable: false,
           children: [""],
         },
       ],
       "/day-17/": [
         {
-          title: "Day 13",
+          title: "Day 17",
           collapsable: false,
           children: [""],
         },
