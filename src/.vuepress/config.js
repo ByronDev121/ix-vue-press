@@ -122,17 +122,14 @@ module.exports = {
         {
           title: "Day 2",
           collapsable: false,
-          children: ["", "git"],
+          children: ["", "dom", "git"],
         },
       ],
       "/day-3/": [
         {
           title: "Day 3",
           collapsable: false,
-          children: [
-            "",
-            // 'git',
-          ],
+          children: [""],
         },
       ],
       "/day-4/": [
