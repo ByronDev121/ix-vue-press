@@ -61,7 +61,7 @@ app.listen(port, () => {
 
 In `backend/src/` create a database directory and add a file called db.js
 
-![Express App File Structure](/express-db-file-structure.png)
+![Express App File Structure](/ix-vue-press/express-db-file-structure.png)
 
 ### Connect to MongoDB
 
@@ -113,13 +113,13 @@ Models are the Model part of the MVC software architectural pattern.
 
 Represents the UI of the application. It displays data (the model) to the user and sends user commands (events) to the controller. The view is responsible for rendering the data provided by the model in a format suitable for interaction, typically through a user interface.
 
-![MVC](/MVC.png)
+![MVC](/ix-vue-press/MVC.png)
 
 ### Create Blog Model
 
 In `backend/src/` create a models directory and add a file called `blogModel.js`
 
-![Express App File Structure](/express-model-file-structure.png)
+![Express App File Structure](/ix-vue-press/express-model-file-structure.png)
 
 ### Define Blog Model
 

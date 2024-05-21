@@ -113,19 +113,19 @@ Project specifications
 
 ### Expected Frontend Pages
 #### Landing Page
-![Landing Page](/page-landing.png)
+![Landing Page](/ix-vue-press/page-landing.png)
 #### Blogs Page
-![All Blogs Page](/page-blogs.png)
+![All Blogs Page](/ix-vue-press/page-blogs.png)
 #### Blog Reading Page
-![Blog Reading Page](/page-blog.png)
+![Blog Reading Page](/ix-vue-press/page-blog.png)
 #### Categories Page
-![Categories Page](/page-categories.png)
+![Categories Page](/ix-vue-press/page-categories.png)
 #### Author Profile Page
-![Author Profile Page](/page-profile.png)
+![Author Profile Page](/ix-vue-press/page-profile.png)
 #### Login Page
-![Login Page](/page-login.png)
+![Login Page](/ix-vue-press/page-login.png)
 #### Registration Page
-![Registration Page](/page-register.png)
+![Registration Page](/ix-vue-press/page-register.png)
 
 ### Modals
 - Create Blog Modal
@@ -198,21 +198,21 @@ Project specifications
 
 ### Expected Frontend Modals
 #### Add Blog
-![Add Blog Modal](/modal-blog-add.png)
+![Add Blog Modal](/ix-vue-press/modal-blog-add.png)
 #### Edit Blog
-![Edit Blog Modal](/modal-blog-edit.png)
+![Edit Blog Modal](/ix-vue-press/modal-blog-edit.png)
 #### Delete Blog
-![Delete Blog Modal](/modal-blog-delete.png)
+![Delete Blog Modal](/ix-vue-press/modal-blog-delete.png)
 
 #### Add Category
-![Add Category Modal](/modal-category-add.png)
+![Add Category Modal](/ix-vue-press/modal-category-add.png)
 #### Edit Category
-![Edit Category Modal](/modal-category-edit.png)
+![Edit Category Modal](/ix-vue-press/modal-category-edit.png)
 #### Delete Category
-![Delete Category Modal](/modal-category-delete.png)
+![Delete Category Modal](/ix-vue-press/modal-category-delete.png)
 
 #### Edit Profile
-![Edit Profile Modal](/modal-profile-edit.png)
+![Edit Profile Modal](/ix-vue-press/modal-profile-edit.png)
 
 ## Backend App
 *Expected Backend Structure*

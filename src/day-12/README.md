@@ -16,7 +16,7 @@ npm install @reduxjs/toolkit react-redux
 
 In `frontend/src/app/` create a file called `store.js`
 
-![Redux Store File Structure](/redux-store-file-structure.png)
+![Redux Store File Structure](/ix-vue-press/redux-store-file-structure.png)
 
 ### Define Redux Store
 
@@ -65,7 +65,7 @@ root.render(
 
 In `frontend/src/app/features` create a file called `blogSlice.js`
 
-![Redux State File Structure](/redux-features-file-structure.png)
+![Redux State File Structure](/ix-vue-press/redux-features-file-structure.png)
 
 ### Define Redux Blog State Slice
 

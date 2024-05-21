@@ -150,15 +150,15 @@ let person = {
   },
   // Object methods:
   getFullName: () => {
-    return this.firstName + " " + this.lastName;
+    return person.firstName + " " + person.lastName;
   },
   getAddress: () => {
     return (
-      this.address.street +
+      person.address.street +
       " " +
-      this.address.city +
+      person.address.city +
       " " +
-      this.address.province
+      person.address.province
     );
   },
 };

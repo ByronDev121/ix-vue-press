@@ -39,7 +39,7 @@ HMACSHA256(
 
 In `backend/src/models` create a file called `userModel.js`
 
-![Express User Model File Structure](/express-user-model-file-structure.png)
+![Express User Model File Structure](/ix-vue-press/express-user-model-file-structure.png)
 
 ### Define user model
 
@@ -133,7 +133,7 @@ module.exports = mongoose.model("Blog", blogSchema);
 
 In `backend/src/routes` create a file called `authRoutes.js`
 
-![Express Auth Routes File Structure](/express-auth-routes-file-structure.png)
+![Express Auth Routes File Structure](/ix-vue-press/express-auth-routes-file-structure.png)
 
 ### Define auth routes
 
@@ -186,7 +186,7 @@ app.listen(port, () => {
 
 In `backend/src/contollers` create a file called `authController.js`
 
-![Express Auth Controller File Structure](/express-auth-controller-file-structure.png)
+![Express Auth Controller File Structure](/ix-vue-press/express-auth-controller-file-structure.png)
 
 ### Define auth controller
 
@@ -447,7 +447,7 @@ const login = async (req, res) => {
 
 In `backend/src/middleware` create a file called `authMiddleware.js`
 
-![Express Auth Middleware File Structure](/express-auth-middleware-file-structure.png)
+![Express Auth Middleware File Structure](/ix-vue-press/express-auth-middleware-file-structure.png)
 
 ### Define auth Middleware
 

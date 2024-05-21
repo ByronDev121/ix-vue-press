@@ -56,7 +56,7 @@ Install chrome extension for [react dev tools](https://chromewebstore.google.com
 
 ### Anatomy of React App
 
-![React App File Structure](/react-file-structure.png)
+![React App File Structure](/ix-vue-press/react-file-structure.png)
 
 #### node_modules
 
@@ -305,7 +305,7 @@ function App() {
 
 In `frontend/src/` create a components directory and add dir and a file called Navbar/index.js
 
-![Frontend Components File Structure](/frontend-components-file-structure.png)
+![Frontend Components File Structure](/ix-vue-press/frontend-components-file-structure.png)
 
 ```js
 import React from "react";

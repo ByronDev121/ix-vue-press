@@ -10,13 +10,15 @@
   "repository": "/day-1",
   "scripts": {
     "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "build": "vuepress build src",
+    "serve": "node server.js"
   },
   "license": "MIT",
   "devDependencies": {
     "vuepress": "^1.5.3"
   },
   "dependencies": {
+    "express": "^4.19.2",
     "vue": "^2.7.16",
     "vue-server-renderer": "^2.7.16"
   }

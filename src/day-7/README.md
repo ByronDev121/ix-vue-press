@@ -12,7 +12,7 @@ Download and install [nodeJS](https://nodejs.org/en/download)
 
 Create a new directory adjacent to your front end app called "backend":
 
-![Full Stack App File Structure](/fronend-backend-file-structure.png)
+![Full Stack App File Structure](/ix-vue-press/fronend-backend-file-structure.png)
 
 cd into you blog-backend directory and run the following command. Press enter to skip through the set up prompts using the default set up. \*_Note: when asked for entry file specify_ `src/index.js`:
 
@@ -90,7 +90,7 @@ npm run dev
 
 In `backend/src/` create a routes directory and add a file called blogs.js
 
-![Express App File Structure](/express-routes-file-structure.png)
+![Express App File Structure](/ix-vue-press/express-routes-file-structure.png)
 
 ### Basic routing in express
 
@@ -194,13 +194,13 @@ Controllers are the Controller part of the MVC software architectural pattern.
 
 Acts as an interface between Model and View components. It processes all the business logic and incoming requests, manipulates data using the Model component, and interacts with the Views to render the final output. The controller receives input, optionally validates it, and then passes the input to the model.
 
-![MVC](/MVC.png)
+![MVC](/ix-vue-press/MVC.png)
 
 ### Create controllers directory
 
 In `backend/src/` create a controllers directory and add a file called blogs.js
 
-![Express App File Structure](/express-controllers-file-structure.png)
+![Express App File Structure](/ix-vue-press/express-controllers-file-structure.png)
 
 ### Setup blog controller
 
