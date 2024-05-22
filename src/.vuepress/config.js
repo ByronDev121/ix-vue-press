@@ -129,7 +129,7 @@ module.exports = {
         {
           title: "Day 3",
           collapsable: false,
-          children: [""],
+          children: ["", "dummy-data"],
         },
       ],
       "/day-4/": [

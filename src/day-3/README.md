@@ -142,32 +142,39 @@ A README is a text (markdown) file that introduces and explains a project. It co
 
 Fundamentally, JSX just provides syntactic sugar for the React.createElement(component, props, ...children) function.
 
+#### Syntax
+
+```jsx
+function MyButton() {
+  return <button style={{ color: "blue", shadowSize: 2 }}>I'm a button</button>;
+}
+```
+
+```jsx
+export default function MyApp() {
+  return (
+    <div>
+      <h1>Welcome to my app</h1>
+      <MyButton />
+    </div>
+  );
+}
+```
+
+:::tip
+Notice that <MyButton /> starts with a capital letter. That’s how you know it’s a React component.
+:::
+
 The JSX code:
 
 ```jsx
-<MyButton color="blue" shadowSize={2}>
-  Click Me
-</MyButton>
+<MyButton />
 ```
 
 compiles into:
 
 ```jsx
-React.createElement(MyButton, { color: "blue", shadowSize: 2 }, "Click Me");
-```
-
-#### Syntax
-
-You can also use the self-closing form of the tag if there are no children. So:
-
-```jsx
-<div className="sidebar" />
-```
-
-compiles into:
-
-```jsx
-React.createElement("div", { className: "sidebar" });
+React.createElement(button, {style={{color:"blue",shadowSize:2}}}, "I'm a button");
 ```
 
 #### One Top Level Element
@@ -175,10 +182,10 @@ React.createElement("div", { className: "sidebar" });
 The HTML code must be wrapped in ONE top level element. So if you like to write two paragraphs, you must put them inside a parent element, like a div element.
 
 ```jsx
-const myElement = (
+const Headings = (
   <div>
-    <p>I am a paragraph.</p>
-    <p>I am a paragraph too.</p>
+    <h1>Heading</h1>
+    <h4>Subheading</h4>
   </div>
 );
 ```
@@ -188,35 +195,161 @@ Alternatively, you can use a "fragment" to wrap multiple lines. This will preven
 A fragment looks like an empty HTML tag: `<></>`.
 
 ```jsx
-const myElement = (
+const Headings = (
   <>
-    <p>I am a paragraph.</p>
-    <p>I am a paragraph too.</p>
+    <h1>Heading</h1>
+    <h4>Subheading</h4>
   </>
 );
 ```
 
-#### Attribute class = className
+#### Styling
+
+Inline:
+
+```jsx
+const Heading = <h1 stye={{ fontSize: "32px;" }}>Hello World</h1>;
+```
 
 The class attribute is a much used attribute in HTML, but since JSX is rendered as JavaScript, and the class keyword is a reserved word in JavaScript, you are not allowed to use it in JSX. JSX solved this by using className instead. When JSX is rendered, it translates className attributes into class attributes.
 
 ```jsx
-const myElement = <h1 className="myclass">Hello World</h1>;
+import "./index.css";
+
+const Heading = <h1 className="heading">Hello World</h1>;
 ```
 
-#### Scope
+Then you write the CSS rules for it in a separate CSS file:
 
-Capitalized types indicate that the JSX tag is referring to a React component. These tags get compiled into a direct reference to the named variable, so if you use the JSX `<Foo />` expression, `Foo` must be in scope. Since JSX compiles into calls to React.createElement, the React library must also always be in scope from your JSX code.
-
-```jsx
-import React from "react";
-import CustomButton from "./CustomButton";
-
-function WarningButton() {
-  // return React.createElement(CustomButton, {color: 'red'}, null);
-  return <CustomButton color="red" />;
+```css
+.heading {
+  font-size: 32px;
 }
 ```
+
+#### Displaying Data:
+
+JSX lets you put markup into JavaScript. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code.
+
+```jsx
+export default function MyApp() {
+  const user = {
+    image: ""
+    firstName: "Byron",
+    lastName: "de Villiers",
+    age: 31,
+    email: "byron@mail.com",
+  };
+  return (
+    <div>
+      <h1>Welcome</h1>
+      <h5>{user.firstName}</p>
+    </div>
+  );
+}
+```
+
+#### Conditional Rendering:
+
+In React, there is no special syntax for writing conditions. Instead, you’ll use the same techniques as you use when writing regular JavaScript code.
+
+```jsx
+import LoginPage from './pages/Login';
+import HomePage from './pages/Home';
+
+export default function MyApp() {
+  const user = {
+    image: ""
+    firstName: "Byron",
+    lastName: "de Villiers",
+    age: 31,
+    email: "byron@mail.com",
+    authenticated: false;
+  };
+
+ if(user.authenticated){
+  return (
+    <Home/>
+  );
+ } else{
+  return (
+    <Login/>
+  );
+ }
+}
+```
+
+We can also use a ternary operator.
+
+```jsx
+import LoginPage from './pages/Login';
+import HomePage from './pages/Home';
+
+export default function MyApp() {
+  const user = {
+    image: ""
+    firstName: "Byron",
+    lastName: "de Villiers",
+    age: 31,
+    email: "byron@mail.com",
+    authenticated: false;
+  };
+
+  return (
+    <div>
+    {
+      user.isAuthenticated ?
+        <HomePage /> :
+        <LoginPage />
+    }
+    </div>
+  )
+```
+
+#### Rendering Lists:
+
+You will rely on JavaScript features like array map() function to render lists of components.
+
+```jsx
+export default function MyApp() {
+  const blogs = [
+  { id: 1, title: 'Javascript Fundamentals', },
+  { id: 1, title: 'HTML and CSS',  },
+  { id: 1, title: 'iX Boot Camp',  },
+];
+
+  return (
+    <ul>
+    {
+      blogs.map(x=>{
+        return (
+          <li key={product.id}>
+            {product.title}
+          </li>
+        )
+      })
+    }
+    </ul>
+  )
+```
+
+#### Responding to events
+
+In React, there is no special syntax for writing conditions. Instead, you’ll use the same techniques as you use when writing regular JavaScript code.
+
+```jsx
+function MyButton() {
+  function handleClick() {
+    alert("You clicked me!");
+  }
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+```
+
+:::tip
+Notice how onClick={handleClick} has no parentheses at the end! Do not call the event handler function: you only need to pass it down. React will call your event handler when the user clicks the button.
+:::
 
 #### Props in JSX
 
@@ -225,6 +358,10 @@ You can pass any JavaScript expression as a prop, by surrounding it with {}. For
 ```jsx
 <MyComponent foo={1 + 2 + 3 + 4} />
 ```
+
+:::tip
+Note: We'll go into more detail about props and state tomorrow.
+:::
 
 ## React Components
 
