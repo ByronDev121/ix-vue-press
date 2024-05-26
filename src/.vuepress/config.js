@@ -150,7 +150,7 @@ module.exports = {
         {
           title: "Day 6",
           collapsable: false,
-          children: ["", "full_stack"],
+          children: ["", "asynchronism"],
         },
       ],
       "/day-7/": [
