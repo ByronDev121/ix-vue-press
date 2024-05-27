@@ -8,19 +8,18 @@ A callback function is a function passed into another function as an argument.
 ### Callback Example
 
 ```jsx
-createBlog({},
+fetchBlogs(
     (res)=>{
         setBlogs(res);
     }
 );
 
-const createBlog = async (blog, cb) => {
+const fetchBlogs = async (cb) => {
     fetch("http://localhost:8000/api/blogs", {
-        method: "POST",
+        method: "GET",
         headers: {
-            Authorization: "Bearer" + JSON.parse(localStorage.getItem("user")).token,
+            "Content-Type": "application/json",
         },
-        body: blog
     }).then(res => {
         cb(res);
     })
@@ -33,14 +32,15 @@ Object representing the eventual completion (or failure) of an asynchronous oper
 ### Creation
 
 ```jsx
-const myPromise = new Promise((resolve, reject) => {
-    // Asynchronous operation 
-    if (/* Operation Successful */) {
-        resolve("Success");  
-    } else {
-        reject("Failure");
-    }
-});
+const asyncFunction = () =>{
+   return new Promise((resolve, reject)=>{
+       if([successful condition]){
+           resolve()
+       } else{
+           reject()
+       }
+   })
+}
 ```
 
 ### Handling Results
@@ -69,27 +69,22 @@ Promises can be chained with the *.then()* method.
 With error handling.
 
 ```jsx
-createBlog({}).then((res) => {
+fetchBlogs().then((res) => {
     console.log(res);
 }).catch(err => {
     console.log(err);
 });
 
-const createBlog = async (blog) => {
-
-    return new Promise((resolve, reject) => {
-
-        fetch("http://localhost:8000/api/blogs", {
-            method: "POST",
-            headers: {
-                Authorization: "Bearer" + JSON.parse(localStorage.getItem("user")).token,
-            },
-            body: blog
-        }).then(res => {
-            resolve(res);
-        }).catch(err => {
-            reject(err);
-        });
+const fetchBlogs = async () => {
+    fetch("http://localhost:8000/api/blogs", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(res => {
+        resolve(res);
+    }).catch(err => {
+        reject(err);
     });
 }
 ```
@@ -102,14 +97,18 @@ Either using the function keyword or arrow function.
 #### Function
 ```jsx
 async function myFunction() {
-    //Code block
+    const response = await fetch(/* ENDPOINT */);
+    const responseData = await response.json();
+    return responseData;
 }
 ```
 
 #### Arrow Function
 ```jsx
 const myFunction = async () => {
-    //Code block 
+    const response = await fetch(/* ENDPOINT */);
+    const responseData = await response.json();
+    return responseData;
 }
 ```
 

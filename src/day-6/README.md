@@ -3,17 +3,38 @@ The orchestrator that ties the Call Stack, Callback Queue, and Web APIs together
 [[toc]]
 
 ## Visualized Example
-
+### Example 1
 ```js
-console.log('Started');
+function printHi(){
+    console.log('Hi');
+}
+function printThere (){
+    setTimeout(()=>{
+        console.log('there');
+    }, 500)
+}
+function printIX(){
+    console.log('iXperience 2024')
+}
+printHi()
+printThere()
+printIX() 
+```
 
-$.on('button', 'click', function onClick() {
-    console.log('Clicked');
-});
-
-setTimeout(function onTimeout() {
-    console.log("Timeout Finished");
-}, 5000);
-
-console.log("Done");
+### Example 2
+```js
+function printHi(){
+    console.log('Hi');
+}
+function printThere (){
+    setTimeout(()=>{
+        console.log('there');
+    }, 0)
+}
+function printIX(){
+    console.log('iXperience 2024')
+}
+printHi()
+printThere()
+printIX()
 ```
