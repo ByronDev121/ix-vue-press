@@ -21,11 +21,15 @@ const ["Variable Name / State Name", "Function Name"] = useState("Default Value"
 ```jsx
 import React, { useState } from "react";
 
-//Assigning dummy data which will be replaced by a fetch later
-const data = require("../../dummy-data.json");
-const [blog, setBlog] = useState(null);
+const [categoryId, setCategoryId] = useState();
 
-setBlog(data);
+<button
+  key={index}
+  onClick={() => setCategoryId(category.id)}
+  style={{ color: "blue" }}
+>
+  <p key={index}>{category.title}</p>
+</button>;
 ```
 
 ## Effect Hook
@@ -40,52 +44,45 @@ Synchronizes a component to an external system.
 
 ```jsx
 useEffect(() => {
-    //Establishing a connection, fetching data, etc...
-  	console.log("Setup Code"); 
-  	return () => {
-      // Disconnecting from the system
-      console.log("Cleanup Code");
-  	};
-  }, ["Dependencies"]);
+  //Establishing a connection, fetching data, etc...
+  console.log("Setup Code");
+  return () => {
+    // Disconnecting from the system
+    console.log("Cleanup Code");
+  };
+}, ["Dependencies"]);
 ```
 
 #### Example with Empty Array
-Subscribing to the browser window size.
+
+Fetching data
+
 ```jsx
-import React, { useState, useEffect } from 'react';
-
-function ResponsiveComponent() {
-    // State to store the current window width
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-    useEffect(() => {
-        // Handler to call on window resize
-        function handleResize() {
-            // Set window width to the state
-            setWindowWidth(window.innerWidth);
-        }
-        // Subscribe to window resize event
-        window.addEventListener('resize', handleResize);
-        // Cleanup subscription on component unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []); // Effect runs only on mount and unmount
-    return (
-        <div>
-            <h1>Responsive Component</h1>
-            <p>The current window width is: {windowWidth}px</p>
-        </div>
-    );
-}
-
-export default ResponsiveComponent;
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      setIsLoading(true);
+      const blogs = await blogService.fetchBlogs();
+      const categories = await categoryService.fetchCategories();
+      setBlogs(blogs.data.reverse());
+      setCategories(categories.data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsError(true);
+      setMessage(error.message);
+      setIsLoading(false);
+    }
+  };
+  fetchData();
+}, []);
 ```
 
 #### Example with Defined Dependency Array
-Fetching dummy data from a blog service. 
 
-*BlogsPage Component*
+Updating filtered blogs based on selected categoryID
+
+_BlogsPage Component_
+
 ```jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -142,7 +139,7 @@ export default function BlogsPage() {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <p className="page-subtitle">Blog Posts</p>
         </div>
-        <BlogList setBlog={() => {console.log("TODO: navigate to blog")}} blogPosts={blogs} />
+        <BlogList setBlog={() => {}} blogPosts={blogs} />
       </div>
       <Footer />
     </>
@@ -159,14 +156,18 @@ Context lets a component receive information from distant parents without passin
 ```jsx
 import { useState, createContext } from "react";
 
-export const ThemeContext = createContext(null);
+export const ThemeContext = createContext("light");
 
 const App = () => {
-  const [isDarkThemed, setIsDarkThemed] = useState(false);
+  const [isDarkThemed, setIsDarkThemed] = useState("light");
 
   return (
     <ThemeContext.Provider value={isDarkThemed}>
-      <button onClick={() => setIsDarkThemed((prev) => !prev)}>
+      <button
+        onClick={() =>
+          setIsDarkThemed((prev) => (prev === "light" ? "dark" : "light"))
+        }
+      >
         Change Theme
       </button>
       <AboutPage />
@@ -189,8 +190,6 @@ Declares a ref. Can hold any value in it.
 import { useRef } from "react";
 const inputRef = useRef(null);
 ```
-
-
 
 ## Performance Hook
 
