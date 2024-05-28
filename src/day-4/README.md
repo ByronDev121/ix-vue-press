@@ -17,20 +17,25 @@ const ["State Name", "Update State Function Name"] = useState("Default Value");
 ## State Implementation
 
 ### Initializing State
-```jsx 
-import { useState } from 'react';
+
+```jsx
+import { useState } from "react";
 const [categoryId, setCategoryId] = useState();
 ```
 
-## ReactJS Built-in State Management  
+## ReactJS Built-in State Management
+
 ### Hooks
+
 Hooks let you use state and other React features without writing a class.
 
-#### *useState*
+#### _useState_
+
 Allows states to be managed within components.
 
 ##### BlogsPage Component
-Adding *CategoriesList* component to utilize *useState*.
+
+Adding _CategoriesList_ component to utilize _useState_.
 
 ```jsx
 import React, { useState } from "react";
@@ -43,7 +48,7 @@ import Footer from "../../components/Footer";
 import "../../App.css";
 import "./index.css";
 
-// Importing dummy data 
+// Importing dummy data
 const data = require("../../dummy-data.json");
 let blogPosts = data.blogPosts;
 const categories = data.categories;
@@ -73,7 +78,7 @@ export default function BlogsPage() {
         </button>
       );
     });
-  }
+  };
 
   return (
     <>
@@ -91,5 +96,24 @@ export default function BlogsPage() {
       <Footer />
     </>
   );
+}
+```
+
+index.css
+
+```css
+.scroll-menu {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.scroll-menu button {
+  background-color: white;
+  border: none;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  font-size: larger;
 }
 ```
