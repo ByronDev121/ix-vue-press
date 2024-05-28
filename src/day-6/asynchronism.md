@@ -55,7 +55,7 @@ myPromise.then((value) => {console.log('Promise fulfilled with value: ', value);
 #### .catch()
 Handles when Promise is rejected.
 ```jsx
-myPromise.catch((reason) => {console.log('Promise rejected with reason: ', reason); });
+myPromise.catch((error) => {console.log('Promise rejected with reason: ', error.message); });
 ```
 
 #### .finally()
@@ -130,11 +130,15 @@ async function fetchData() {
 
 #### try...catch()
 ```jsx
-async function myFunction() {
+const myFunction = async () => {
     try { 
-        //Code block
+        //Attempt code block
+        const response = await fetch("ENDPOINT");
+        const responseData = await response.json();
+        return responseData;
     } catch(error) {
-        console.log(error);
+        // On failure
+        console.log(error.message);
     }
 }
 ```
@@ -143,9 +147,12 @@ async function myFunction() {
 ```jsx
 myPromise
     .then((response) => {
-        throw new Error(`Error`);
-    )}
+        // On Success
+        setData(response); //Utilizing the response
+    })
     .catch((error) => {
-        console.error(${error});
+        // On Failure
+        throw new Error(error.message); //Throwing an error
+        setErrorMessage(error.message) //Or setting an error message
     });
 ```

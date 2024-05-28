@@ -53,5 +53,3 @@ OrderItem: {
   quantity;
 }
 ```
-
-### 

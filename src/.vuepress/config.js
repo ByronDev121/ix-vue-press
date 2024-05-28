@@ -171,7 +171,7 @@ module.exports = {
         {
           title: "Day 9",
           collapsable: false,
-          children: [""],
+          children: ["", "full-stack", "homework"],
         },
       ],
       "/day-11/": [
