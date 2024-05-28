@@ -59,7 +59,7 @@ Go to [http://localhost:3000](http://localhost:3000) in your browser and you sho
 Install [nodemon](https://www.npmjs.com/package/nodemon) to reload the server if a code change is made.
 
 ```bash
-npm install --save-dev
+npm install nodemon --save-dev
 ```
 
 Update your project scripts to run nodemon is dev.
@@ -82,7 +82,54 @@ npm run dev
 
 ## Middleware
 
-## CORS
+Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named next.
+
+### CORS
+
+Cross-Origin Resource Sharing:
+
+Cross-origin resource sharing is a mechanism that allows a web page to access restricted resources from a server on a domain different than the domain that served the web page.
+
+```bash
+npm i cors
+```
+
+```js
+const express = require("express");
+const cors = require("cors");
+const port = 3000;
+
+const app = express();
+
+// Enabling CORS for any unknown origin
+app.use(cors());
+
+app.listen(port, () => {
+  console.log(`IX blogging app listening on port ${port}`);
+});
+```
+
+### Parsing JSON payload
+
+The express.json() middleware is used to parse incoming requests with JSON payloads and make the parsed data available in req.body.
+
+```js
+const express = require("express");
+const cors = require("cors");
+const port = 3000;
+
+const app = express();
+
+// Enabling CORS for any unknown origin
+app.use(cors());
+
+// Enabling the use of JSON for the body of the request
+app.use(express.json());
+
+app.listen(port, () => {
+  console.log(`IX blogging app listening on port ${port}`);
+});
+```
 
 ## Routes
 
