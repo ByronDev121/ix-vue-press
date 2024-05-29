@@ -979,22 +979,8 @@ export default function AddEditBlogModal({ addBlog, editBlog , categories, creat
 import AddEditBlogModal from "../../components/AddEditBlogModal";
 
 export default function BlogsPage() {
- const [addBlog, setAddBlog] = useState({
-    image: "",
-    title: "",
-    description: "",
-    categories: [],
-    content: [],
-    authorId: "",
-  });
-  const [editBlog, setEditBlog] = useState({
-    image: "",
-    title: "",
-    description: "",
-    categories: [],
-    content: [],
-    authorId: "",
-  });
+  const [addBlog, setAddBlog] = useState();
+  const [editBlog, setEditBlog] = useState();
 
   const onAddBlog = () => {
     setAddBlog({
@@ -1003,7 +989,7 @@ export default function BlogsPage() {
       description: "",
       categories: [],
       content: [],
-      authorId: user?.id,
+      authorId: "",
     });
   };
 
@@ -1011,16 +997,14 @@ export default function BlogsPage() {
     return (
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <p className="page-subtitle">Blog Posts</p>
-        {user && (
-          <button
-            style={{ margin: "16px" }}
-            type="button"
-            className="btn btn-outline-secondary"
-            onClick={onAddBlog}
-          >
-            Add Blog Post
-          </button>
-        )}
+        <button
+          style={{ margin: "16px" }}
+          type="button"
+          className="btn btn-outline-secondary"
+          onClick={onAddBlog}
+        >
+          Add Blog Post
+        </button>
       </div>
     );
   };
@@ -1319,14 +1303,7 @@ export default function DeleteBlogModal({
 import DeleteBlogModal from "../../components/DeleteBlogModal";
 
 export default function BlogsPage() {
-  const [deleteBlog, setDeleteBlog] = useState({
-    image: "",
-    title: "",
-    description: "",
-    categories: [],
-    content: [],
-    authorId: "",
-  });
+  const [deleteBlog, setDeleteBlog] = useState();
 
   const removeBlog = async (blog) => {
     try { 
