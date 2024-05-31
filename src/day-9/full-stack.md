@@ -35,7 +35,7 @@ const createBlog = async (blog) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: blog,
+    body: JSON.stringify(blog),
   });
 
   if (!response.ok) {
@@ -152,16 +152,13 @@ const fetchBlogsByAuthorId = async (authorId) => {
 
 ```js
 const updateBlog = async (blog) => {
-  const response = await fetch(
-    "http://localhost:8000/api/blogs/" + blog.get("id"),
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: blog,
-    }
-  );
+  const response = await fetch("http://localhost:8000/api/blogs/" + blog.id, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(blog),
+  });
 
   if (!response.ok) {
     let res = await response.json();
@@ -365,8 +362,8 @@ export default function Home() {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const blogsRes = await blogService.getBlogs();
-        const categoryRes = await categoryService.getCategories();
+        const blogsRes = await blogService.fetchBlogs();
+        const categoryRes = await categoryService.fetchCategories();
         setBlogs(blogsRes.data.reverse());
         setCategories(categoryRes.data);
         setLoading(false);
@@ -450,10 +447,10 @@ export default function BlogsPage() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const blogsRes = await blogService.getBlogsByCategoryId(
+        const blogsRes = await blogService.fetchBlogsByCategoryId(
           categoryId || null
         );
-        const categoriesRes = await categoryService.getCategories();
+        const categoriesRes = await categoryService.fetchCategories();
         setBlogs(blogsRes.data.reverse());
         setCategories(categoriesRes.data);
         setLoading(false);
@@ -568,7 +565,7 @@ export default function BlogPage() {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const blog = await blogService.getBlogByID(blogId);
+        const blog = await blogService.fetchBlogByID(blogId);
         setBlog(blog.data);
         setMessage(blog.message);
         setIsLoading(false);
@@ -709,10 +706,10 @@ export default function ProfilePage() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const getAuthorBlogs = async () => {
+    const fetchAuthorBlogs = async () => {
       try {
         setIsLoading(true);
-        const blogs = await blogService.getBlogsByAuthorId(authorId);
+        const blogs = await blogService.fetchBlogsByAuthorId(authorId);
         setBlogs(blogs.data);
         setIsLoading(false);
       } catch (error) {
@@ -721,7 +718,7 @@ export default function ProfilePage() {
         setMessage(error.message || error);
       }
     };
-    getAuthorBlogs();
+    fetchAuthorBlogs();
   }, [authorId]);
 
   const resetSuccess = () => {
@@ -812,10 +809,10 @@ export default function BlogsPage() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const blogsRes = await blogService.getBlogsByCategoryId(
+        const blogsRes = await blogService.fetchBlogsByCategoryId(
           categoryId || null
         );
-        const categoriesRes = await categoryService.getCategories();
+        const categoriesRes = await categoryService.fetchCategories();
         setBlogs(blogsRes.data);
         setCategories(categoriesRes.data);
         setLoading(false);

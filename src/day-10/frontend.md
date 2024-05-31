@@ -37,7 +37,7 @@ const createBlog = async (blog) => {
   return blogsApiData;
 };
 
-const getBlogs = async () => {
+const fetchBlogs = async () => {
   const response = await fetch("http://localhost:8000/api/blogs", {
     method: "GET",
     headers: {
@@ -60,7 +60,7 @@ const getBlogs = async () => {
   return blogsApiData;
 };
 
-const getBlogByID = async (id) => {
+const fetchBlogByID = async (id) => {
   const response = await fetch("http://localhost:8000/api/blogs/" + id, {
     method: "GET",
     headers: {
@@ -82,9 +82,34 @@ const getBlogByID = async (id) => {
   return blogsApiData;
 };
 
-const getBlogsByCategoryId = async (categoryId) => {
+const fetchBlogsByCategoryId = async (categoryId) => {
   const response = await fetch(
     "http://localhost:8000/api/blogs/categories/" + categoryId,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!response.ok) {
+    try {
+      let res = await response.json();
+      throw res.message || JSON.stringify(res);
+    } catch (err) {
+      console.log(err);
+      const error = new Error("Something went wrong");
+      throw error.message;
+    }
+  }
+
+  const blogsApiData = await response.json();
+  return blogsApiData;
+};
+
+const fetchBlogsByAuthorId = async (authorId) => {
+  const response = await fetch(
+    "http://localhost:8000/api/blogs/author/" + authorId,
     {
       method: "GET",
       headers: {
@@ -154,10 +179,11 @@ const deleteBlog = async (id) => {
 };
 
 const blogService = {
-  getBlogs,
-  getBlogsByCategoryId,
   createBlog,
-  getBlogByID,
+  fetchBlogs,
+  fetchBlogByID,
+  fetchBlogsByCategoryId,
+  fetchBlogsByAuthorId,
   updateBlog,
   deleteBlog,
 };
@@ -196,7 +222,7 @@ const createCategory = async (category) => {
   return categoriesApiData;
 };
 
-const getCategories = async () => {
+const fetchCategories = async () => {
   const response = await fetch("http://localhost:8000/api/categories", {
     method: "GET",
     headers: {
@@ -271,7 +297,7 @@ const deleteCategory = async (id) => {
 
 const categoryService = {
   createCategory,
-  getCategories,
+  fetchCategories,
   updateCategory,
   deleteCategory,
 };
@@ -583,7 +609,7 @@ export default function CategoriesPage() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const categoriesRes = await categoryService.getCategories();
+        const categoriesRes = await categoryService.fetchCategories();
         setCategories(categoriesRes.data);
         setLoading(false);
       } catch (err) {
