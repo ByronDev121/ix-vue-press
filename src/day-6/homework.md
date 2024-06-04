@@ -13,7 +13,7 @@ Updating blog app frontend to fetch data from the teaching teams API.
             - All blogs - fetchBlogs 
                 - https://ix-blog-app-2d5c689132cd.herokuapp.com/api/blogs
             - Blogs by category ID - fetchBlogsByCategoryId
-                - https://ix-blog-app-2d5c689132cd.herokuapp.com/api/blogs/category?iid=[category-id]
+                - https://ix-blog-app-2d5c689132cd.herokuapp.com/api/blogs/category/[categoryId]
         - Categories:
             - All categories - fetchCategories
                 - https://ix-blog-app-2d5c689132cd.herokuapp.com/api/categories

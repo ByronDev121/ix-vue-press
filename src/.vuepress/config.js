@@ -79,6 +79,10 @@ module.exports = {
         link: "/day-9/",
       },
       {
+        text: "Day 10",
+        link: "/day-10/",
+      },
+      {
         text: "Day 11",
         link: "/day-11/",
       },
@@ -174,11 +178,18 @@ module.exports = {
           children: ["", "full-stack", "homework"],
         },
       ],
+      "/day-10/": [
+        {
+          title: "Day 10",
+          collapsable: false,
+          children: ["", "frontend", "homework"],
+        },
+      ],
       "/day-11/": [
         {
           title: "Day 11",
           collapsable: false,
-          children: [""],
+          children: ["", "postman-testing", "frontend"],
         },
       ],
       "/day-12/": [
