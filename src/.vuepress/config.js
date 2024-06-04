@@ -180,7 +180,7 @@ module.exports = {
       ],
       "/day-10/": [
         {
-          title: "Day 9",
+          title: "Day 10",
           collapsable: false,
           children: ["", "frontend", "homework"],
         },
@@ -189,7 +189,7 @@ module.exports = {
         {
           title: "Day 11",
           collapsable: false,
-          children: [""],
+          children: ["", "postman-testing", "frontend"],
         },
       ],
       "/day-12/": [

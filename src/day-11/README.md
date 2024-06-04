@@ -6,6 +6,14 @@
 
 ### Structure of a JWT
 
+#### Example Encoded JWT:
+
+`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`.
+`eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ`.
+`SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
+
+#### Decoded JWT Token:
+
 Header:
 
 ```json
@@ -69,8 +77,7 @@ const userSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default:
-        "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAmAMBIgACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABQYHBAIBA//EADsQAAEDAgIGBgcGBwAAAAAAAAABAgMEEQUGISIxQVGhEhNhcYGRFiRysbLR4RQjJTNT8BU0QkNSYpP/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/ANSABpkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAreZ8wOonLR0Sp9otrv/T7E7fcBNVuI0VAnrdQyNdzb3cvgmkjPSzCelbrJrcepWxQ5Huke58jlc9y3Vzluq+J5Ka1GixGir09UqGSLvbezk8F0nUZMx7o3tfG5Wvat0c1bKniXXLOYXVqpR1zk+0W1H/qdi9oFkABAAAAAAAAAAAAAAAABx4vWph+HTVW1WtsztcuhOZmT3uke573dJ7lVzl4qv7Uuee5FbQ00SLodLdfBPqUopQAFQPUb3Rva9i2e1Uc1eCpsXzseQSrGn4RW/xDDoarYrm6/Y5NC8zsKzkSRXUNTFfQ2XpJ2XT6FmIAAAAAAAAAAAAAAAAKxntl6Olem6RU5fQpZo+ZqN1bg07GNvIy0jETfbbyuZwUoACoAAlWLpkRlqOqfxkRPJPqWci8s0bqLBoGPbaR95Hou6+xPKxKEAAAAAAAAAAAAAAAAApGZMvPppX1dFGr6dyq57G7Y17uHuLuL22AZJdNoNMq8Gw6rd0p6SNXrte3VVfKxx+imFdK/VS93WqUZ/2lky3l6SolZV1sasp2qjmMdtkXu4e8tFJguHUjulBSx9NNj3azk87nfe+0gAAAAAAAAAAAAAAAAAEXjeNU+Ex2d95UOTUiRea8EAkZZY4Y3STPaxjdrnLZCArs3UUCq2mjkqHJvTVb57VKjiOI1WJTdZVSdJEXVYmhre5DkKasM2b8Qf8AkxwRJ7KuXmc/pTi179fH/wAmkMBiLDDm/EGreaOCVPZVq8iYoc3UU6o2pjfTuX+pdZvntQowGDWIpY5o2yQva9jtjmrdD2Zfh2I1WGzdZSydFFXWYulru9C+YJjVPisdm/d1DU14lXmnFCKlAAAAAAAAAAAAPiqiIqqtkTSq8AI7HcVjwqjWRbOmdoiYu9ePchnVRPLUzvmner5Hrdzl3nZjuIrieIvmT8purEi/4p8yPAAAqAAKAAAH6U88tNOyaB6skYt2uTcfmCK0nAsVjxWjSRLNmbolYm5ePcpJGaYFiK4ZiLJv7TtSVP8AVfkaUioqIqLdF0ovEg+gAAAAAAAEPmqrWkwaXoKqPmVIm+O3kikwVHPsv8lDu13r36E+YFSABUAAUAAAAAAAADQ8q1a1eDRdNVV8SrG7w2clQzwtuQpV9dh9h6c0+RFW4AEAAAAAAKVntfxCmTckS/EfABWgAaQAAAAAAAAAAAs2RF/EKlNyxJ8R8BKLsACNAACP/9k=",
+      default: "https://storage.googleapis.com/ix-blog-app/download.png",
     },
     password: {
       type: String,
@@ -89,7 +96,7 @@ module.exports = mongoose.model("User", userSchema);
 
 src/models/blogModel.js
 
-```js{8}
+```js{5-9,41,56-64}
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema(
@@ -124,6 +131,42 @@ const blogSchema = new mongoose.Schema(
   { timeStamp: true }
 );
 
+// Add a toJSON method to the schema to control the output of blog instances
+blogSchema.method("toJSON", function () {
+  const {
+    __v,
+    _id,
+    categoryIds,
+    authorId: author,
+    ...object
+  } = this.toObject();
+  object.id = _id;
+
+  // Add category details to the blog object
+  object.categories = categoryIds.map((category) => {
+    return {
+      id: category._id,
+      title: category.title,
+      description: category.description,
+      color: category.color,
+    };
+  });
+
+  // Add author details to the blog object
+  if (authorId && authorId._id) {
+    object.author = {
+      id: author._id,
+      firstName: author.firstName,
+      lastName: author.lastName,
+      email: author.email,
+      image: author.image,
+      bio: author.bio,
+    }
+  }
+
+  return object;
+});
+
 module.exports = mongoose.model("Blog", blogSchema);
 ```
 
@@ -143,13 +186,13 @@ src/routes/authRoutes.js
 const express = require("express");
 const router = express.Router();
 
-const { login, register } = require("../controllers/authController");
+const { login, register } = require("../controllers/auth");
 
 router.post("/login", (req, res) => {
   login(req, res);
 });
 
-router.get("/register", (req, res) => {
+router.post("/register", (req, res) => {
   register(req, res);
 });
 
@@ -162,21 +205,30 @@ src/index.js
 
 ```js
 const express = require("express");
-const connectDB = require("./database/db");
+const cors = require("cors");
 require("dotenv").config();
+
+const blogsRoutes = require("./routes/blogs");
+const categoryRoutes = require("./routes/categories");
+const authRoutes = require("./routes/auth");
+
+const connectDB = require("./database/db");
 
 connectDB();
 
-const app = express();
 const port = process.env.PORT || 8000;
+const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
-app.use("/api/blogs", require("./routes/blogRoutes"));
-app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/blogs", blogsRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/auth", authRoutes);
 
 app.listen(port, () => {
-  console.log(`IX blogging app listening on port ${port}`);
+  console.log(`Example app listening on port ${port}`);
 });
 ```
 
@@ -184,18 +236,18 @@ app.listen(port, () => {
 
 ### Create auth controller
 
-In `backend/src/contollers` create a file called `authController.js`
+In `backend/src/contollers` create a file called `auth.js`
 
 ![Express Auth Controller File Structure](/ix-vue-press/express-auth-controller-file-structure.png)
 
 ### Define auth controller
 
-src/controller/authController.js
+src/controllers/auth.js
 
 login register
 
 ```js
-const User = require("../models/userModel");
+const User = require("../models/User");
 
 const register = async (req, res) => {
   try {
@@ -220,7 +272,9 @@ const register = async (req, res) => {
       password,
     });
     const newUser = await user.save();
-    res.status(201).json({ message: "New user created!", data: newUser });
+    let resUser = newUser.toJSON();
+    delete resUser.password;
+    res.status(201).json({ message: "New user created!", data: resUser });
   } catch (error) {
     res.status(500).json({ message: error.message, data: [] });
   }
@@ -249,6 +303,8 @@ const login = async (req, res) => {
       res.status(400).json({ message: "Invalid credentials", data: [] });
       return;
     }
+    let resUser = user.toJSON();
+    delete resUser.password;
     res.status(200).json({ message: "Login successful!", data: user });
   } catch (error) {
     res.status(500).json({ message: error.message, data: [] });
@@ -271,7 +327,9 @@ npm i bcryptjs
 
 register function
 
-```js{15-17,24}
+```js{1,17-19,26}
+const bcrypt = require("bcryptjs");
+
 const register = async (req, res) => {
   try {
     const { firstName, lastName, email, bio, password } = req.body;
@@ -295,10 +353,12 @@ const register = async (req, res) => {
       lastName,
       email,
       bio,
-      hashedPassword,
+      password: hashedPassword,
     });
     const newUser = await user.save();
-    res.status(201).json({ message: "New user created!", data: newUser });
+    let resUser = newUser.toJSON();
+    delete resUser.password;
+    res.status(201).json({ message: "New user created!", data: resUser });
   } catch (error) {
     res.status(500).json({ message: error.message, data: [] });
   }
@@ -328,7 +388,9 @@ const login = async (req, res) => {
       res.status(400).json({ message: "Invalid credentials", data: [] });
       return;
     }
-    res.status(200).json({ message: "Login successful!", data: user });
+    let resUser = user.toJSON();
+    delete resUser.password;
+    res.status(200).json({ message: "Login successful!", data: resUser });
   } catch (error) {
     res.status(500).json({ message: error.message, data: [] });
   }
@@ -353,7 +415,7 @@ JWT_SECRET=123abc
 
 ### Define generate token function
 
-src/controllers.authcontroller.js
+src/controllers.auth.js
 
 ```js
 const jwt = require("jsonwebtoken");
@@ -364,7 +426,7 @@ const jwt = require("jsonwebtoken");
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: "1d",
+    // expiresIn: "1d",
   });
 };
 ```
@@ -400,9 +462,10 @@ const register = async (req, res) => {
       password: hashedPassword,
     });
     const newUser = await user.save();
-    newUser.password = undefined;
-    newUser.token = generateToken(newUser._id);
-    res.status(201).json({ message: "New user created!", data: newUser });
+    let resUser = newUser.toJSON();
+    resUser.token = generateToken(resUser._id);
+    delete resUser.password;
+    res.status(201).json({ message: "New user created!", data: resUser });
   } catch (error) {
     res.status(500).json({ message: error.message, data: [] });
   }
@@ -432,9 +495,10 @@ const login = async (req, res) => {
       res.status(400).json({ message: "Invalid credentials", data: [] });
       return;
     }
-    user.password = undefined;
-    user.token = generateToken(newUser._id);
-    res.status(200).json({ message: "Login successful!", data: user });
+    let resUser = user.toJSON();
+    resUser.token = generateToken(resUser._id);
+    delete resUser.password;
+    res.status(200).json({ message: "Login successful!", data: resUser });
   } catch (error) {
     res.status(500).json({ message: error.message, data: [] });
   }
@@ -455,7 +519,7 @@ src/middleware/authMiddleware.js
 
 ```js
 const jwt = require("jsonwebtoken");
-const User = require("../models/userModel");
+const User = require("../models/User");
 
 const protect = async (req, res, next) => {
   let token;
@@ -498,16 +562,12 @@ module.exports = { protect };
 
 src/routes/blogsRoutes.js
 
-```js{10,12,24,28}
+```js{6,9,20,24}
 const express = require("express");
 const router = express.Router();
-const {
-  createBlog,
-  getBlogs,
-  getBlog,
-  updateBlog,
-  deleteBlog,
-} = require("../controllers/blogController");
+
+const blogController = require("../controllers/blogs");
+
 const { protect } = require("../middleware/authMiddleware");
 
 router.post("/", protect, (req, res) => {

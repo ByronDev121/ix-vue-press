@@ -60,7 +60,7 @@ const blogSchema = new mongoose.Schema(
       required: true,
     },
     categoryIds: {
-      type: Array,
+      type: [mongoose.Schema.Types.ObjectId],
       required: true,
       ref: "Category",
     },
@@ -147,7 +147,7 @@ const getBlogs = async (req, res) => {
       message: "Get all blogs!",
       data: blogs,
     });
-  } catch (err) {
+  } catch (error) {
     res.status(500).json({ message: error.message, data: {} });
   }
 };
@@ -163,7 +163,7 @@ const getBlogById = async (req, res) => {
     } else {
       res.status(404).json({ message: "Blog not found!", data: {} });
     }
-  } catch (err) {
+  } catch (error) {
     res.status(500).json({ message: error.message, data: {} });
   }
 };
@@ -180,7 +180,7 @@ const getBlogsByCategoryID = async (req, res) => {
       message: "Get blogs by categoryID!",
       data: blogs,
     });
-  } catch (err) {
+  } catch (error) {
     res.status(500).json({ message: error.message, data: {} });
   }
 };
@@ -194,14 +194,15 @@ const updateBlogByID = async (req, res) => {
     if (blog) {
       const categoryIds = req?.body?.categories.map((x) => x.id);
       blog.authorId = req?.body?.authorId || blog.authorId;
-      blog.categoryIds = req?.body?.categoryIds
-        ? categoryIds
-        : blog.categoryIds;
+      blog.categoryIds = categoryIds ? categoryIds : blog.categoryIds;
       blog.title = req?.body?.title || blog.title;
       blog.description = req?.body?.description || blog.description;
       blog.content = req.body.content ? req.body.content : blog.content;
       const updatedBlog = await blog.save();
-      res.status(200).json({ message: "Blog updated!", data: updatedBlog });
+      const blogRes = await updatedBlog.populate({
+        path: "categoryIds",
+      });
+      res.status(200).json({ message: "Blog updated!", data: blogRes });
     } else {
       res.status(404).json({ message: "Blog not found!", data: [] });
     }
