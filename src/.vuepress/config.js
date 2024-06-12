@@ -203,14 +203,14 @@ module.exports = {
         {
           title: "Day 13",
           collapsable: false,
-          children: ["", "multer", "images"],
+          children: [""],
         },
       ],
       "/day-14/": [
         {
           title: "Day 14",
           collapsable: false,
-          children: [""],
+          children: ["", "postman", "frontend"],
         },
       ],
       "/day-17/": [

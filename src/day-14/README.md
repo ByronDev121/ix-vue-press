@@ -1,177 +1,178 @@
-# Data Structures and Algorithms
-Arrays, Hash maps, Linked lists, stacks, queues, trees
+# Multer
+
 [[toc]]
 
-## Data Structures
-Structures of how data can be stored.
+## Installation
 
-### Arrays
-A collection of items stored at a contiguous memory locations
+### Multer Installation
 
-```jsx
-const testArray = [0, 1, 1, 2, 3, 5, 8, 13]
-
-// Multidimensional array (array of arrays).
-const multiArray = [
-    [0, 1, 1],
-    [2, 3, 5],
-    [8, 13, 21],
-]
+```bash
+npm install multer
 ```
 
-## Algorithms
-Techniques to solve different problems.
+## Usage
 
-### Recursion
-Function calling on itself
+### Create Multer Middleware
+
+In `backend/src/middleware` create a file called `multer.js`
+
+![Multer File Structure](/ix-vue-press/multer-middleware-file-structure.png)
+
+### Define Multer Middleware
+
+`backend/src/middleware/multer.js`
+
 ```jsx
-function getFactorial(num) {
-    if (num === 0) {
-        return 1;
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    switch (req.baseUrl) {
+      case "/api/blogs":
+        cb(null, "uploads/blogs/");
+        break;
+      case "/api/auth":
+        cb(null, "uploads/users/");
+        break;
+      default:
+        cb(null, "uploads/");
+        break;
     }
-    let factorial = num * getFactorial(num - 1)
-    return factorial;
-}
-```
+  },
+  filename: function (req, file, cb) {
+    let fileExt = file.originalname.split(".").pop();
+    let fileName = Date.now() + "." + fileExt;
+    cb(null, fileName);
+  },
+});
 
-### Dynamic Programming
-Improvement over recursion by storing previous subproblem results.
-#### Memoization Example
-Top-down approach
-```jsx
-const cache = new Map();
-function fib(n) {
-    if (cache.has(n)) {
-        return cache.get(n);
-    }
-    
-    if (n === 0) {
-        return 0;
-    } else if (n === 1) {
-        return 1;
-    } else {
-      let result = fib(n - 1) + fib(n - 2);
-      cache.set(n, result);
-      return result;
-    }
-}
-```
-#### Tabulation Example
-Bottom-up approach
-```jsx
-function  fib(n) {
-    if (n === 0 ) {
-        return 0;
-    } else if (n === 1) {
-        return 1;
-    } else {
-        let table = new Array(n+2); 
-        table[0] = 0;
-        table[1] = 1;
-
-        for (let i = 2; i <= n; i++)
-        {
-            table[i] = table[i-1] + table[i-2];
-        }
-        return table[n];
-    }
-}
-```
-
-
-
-## Class Examples 
-
-### Palindrome 
-A word, phrase, or sequence that reads the same backwards as forwards
-
-#### Time O(n) & Space O(n)
-```jsx
-function isPalindrome(s) {
-  s = s.toLowerCase().replace(/[_\W]/g,'');
-  for (let i = 0, j = s.length - 1; i <= j; i++, j--) {
-    if (s[i] !== s[j]) {
-        return false;
+const fileFilter = (req, file, cb) => {
+  // Accept images only
+  if (file.mimetype.startsWith("image")) {
+    cb(null, true);
+  } else {
+    cb(new Error("Not an image! Please upload only images."), false);
   }
-  return true;
-}
-```
-
-#### Time O(n) & Space O(1)
-```jsx
-function isAlphanumeric(char) {
-    const code = char.charCodeAt(0);
-    return (code >= 97 && code <= 122) || (code >= 48 && code <= 57);
-}
-
-function isPalindrome(s) {
-    s = s.toLowerCase();
-    let i = 0, j = s.length - 1;
-
-    while (i < j) {
-        while (i < j && !isAlphanumeric(s[i])) {
-          i++;
-        }
-
-        while (i < j && !isAlphanumeric(s[j])) {
-          j--;
-        }
-
-        if (s[i] !== s[j]) {
-          return false;
-        }
-
-        i++;
-        j--;
-    }
-      
-    return true;
-}
-```
-
-
-### Anagram
-*Nag a Ram*. A word or phrase made by transposing the letters of another work or phrase.
-
-#### Time O(n) & Space O(n)
-```jsx
-function isAnagram(s, t)
-{
-    let counter1 = new Array(256).fill(0);
-    let counter2 = new Array(256).fill(0);
-    
-    for (let i = 0; i < s.length && 
-         i < t.length; i++) 
-    {
-        counter1[s[i].charCodeAt(0)]++;
-        counter2[t[i].charCodeAt(0)]++;
-    }
-  
-    if (s.length != t.length)
-        return false;
-  
-    for (i = 0; i < 256; i++)
-    if (counter1[i] != counter2[i])
-        return false;
-  
-    return true;
-}
-```
-
-#### Time O(n) & Space O(1)
-```jsx
-function isAnagram(s, t) {
-    if(s.length != t.length) {
-        return false;
-    }
-    
-    let alphabetDif = new Array(26).fill(0);
-
-    for(let i = 0; i < s.length; i++) {
-        alphabetDif[s.charAt(i).charCodeAt(0) - 'a'.charCodeAt(0)]++;
-        alphabetDif[t.charAt(i).charCodeAt(0) - 'a'.charCodeAt(0)]--;
-    }
-    
-    return alphabetDif.every(index => index === 0);
 };
+
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+  limits: {
+    fileSize: 1024 * 1024 * 5, // 5MB max file size
+  },
+});
+
+module.exports = { upload };
+```
+
+## Add multer middleware to specific route for file/image upload
+
+`backend/src/routes/blogs.js`
+
+```jsx
+...
+const { upload } = require("../middleware/multer");
+
+...
+
+/**
+ * POST /api/blogs
+ */
+router.post("/", protect, upload.single("image"), (req, res) => {
+  blogController.createBlogs(req, res);
+});
+
+...
+
+/**
+ * Put /api/blogs/
+ */
+router.put("/:id", protect, upload.single("image"), (req, res) => {
+  blogController.updateBlogByID(req, res);
+});
+```
+
+## Update Blogs Controller
+
+```jsx
+...
+
+const createBlogs = async (req, res) => {
+  try {
+    console.log(req.body);
+    const categoryIds = JSON.parse(req?.body?.categories).map((x) => x.id);
+    const blog = new Blog({
+      title: req.body.title,
+      description: req.body.description,
+      image: req?.file?.path
+        ? req?.protocol + "://" + req?.headers?.host + "/" + req.file.path
+        : "",
+      content: JSON.parse(req.body.content),
+      authorId: req.body.authorId,
+      categoryIds: categoryIds,
+    });
+
+    const newBlog = await blog.save();
+
+    const blogRes = await Blog.findById(newBlog._id)
+      .populate({
+        path: "categoryIds",
+      })
+      .populate({ path: "authorId" });
+
+    res.status(201).json({
+      message: "Blog created!",
+      data: blogRes,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message, data: {} });
+  }
+};
+
+...
+
+const updateBlogByID = async (req, res) => {
+  console.log(req.body);
+  try {
+    const blog = await Blog.findById(req.params.id)
+      .populate({
+        path: "categoryIds",
+      })
+      .populate({ path: "authorId" });
+    if (blog) {
+      const categoryIds = JSON.parse(req?.body?.categories).map((x) => x.id);
+      blog.authorId = req?.body?.authorId || blog.authorId;
+      blog.categoryIds = categoryIds ? categoryIds : blog.categoryIds;
+      (blog.image = req?.file?.path
+        ? req?.protocol + "://" + req?.headers?.host + "/" + req.file.path
+        : blog.image),
+        (blog.title = req?.body?.title || blog.title);
+      blog.description = req?.body?.description || blog.description;
+      blog.content = req.body.content ? JSON.parse(req.body.content) : blog.content;
+      const updatedBlog = await blog.save();
+      const blogRes = await updatedBlog.populate({
+        path: "categoryIds",
+      });
+      res.status(200).json({ message: "Blog updated!", data: blogRes });
+    } else {
+      res.status(404).json({ message: "Blog not found!", data: [] });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message, data: {} });
+  }
+};
+```
+
+## Update index.js
+
+`backend/src/index.js`
+
+```jsx
+...
+const path = require("path");
+
+...
+
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 ```
