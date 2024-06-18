@@ -99,6 +99,10 @@ module.exports = {
         link: "/day-14/",
       },
       {
+        text: "Day 15",
+        link: "/day-15/",
+      },
+      {
         text: "Day 17",
         link: "/day-17/",
       },
@@ -210,7 +214,14 @@ module.exports = {
         {
           title: "Day 14",
           collapsable: false,
-          children: ["", "postman", "frontend"],
+          children: ["", "postman", "frontend", "google-cloud-storage"],
+        },
+      ],
+      "/day-15/": [
+        {
+          title: "Day 15",
+          collapsable: false,
+          children: [""],
         },
       ],
       "/day-17/": [
